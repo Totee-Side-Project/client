@@ -1,11 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { RecoilRoot } from "recoil";
+import { Global } from "@emotion/react";
+import globalStyle from "./globalStyle";
 
 const queryClient = new QueryClient();
 
@@ -14,6 +15,7 @@ ReactDOM.render(
     <RecoilRoot>
       <QueryClientProvider client={queryClient}>
         <BrowserRouter>
+          <Global styles={globalStyle} />
           <App />
         </BrowserRouter>
       </QueryClientProvider>
