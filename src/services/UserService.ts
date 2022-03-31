@@ -11,8 +11,19 @@ export default class UserService {
     return response.data;
   }
 
-  public static async signUp(reqData: ReqSignUp) {
+  public static async signUp(
+    reqData: ReqSignUp
+  ): Promise<ResponseData<{ message: string }>> {
     const response = await axios.post(`${BASE_URL}/auth/signup`, reqData);
-    console.log(response);
+    return response.data;
+  }
+
+  public static async check(token: string): Promise<ResponseData<UserState>> {
+    const response = await axios.get(`${BASE_URL}/api/v1/info`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
   }
 }

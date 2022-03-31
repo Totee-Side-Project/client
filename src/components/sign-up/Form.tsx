@@ -1,35 +1,54 @@
-import { FormEvent, useEffect, useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import { useMutation } from "react-query";
-import { useRecoilState } from "recoil";
-import { userState } from "../../atoms";
+import { useNavigate } from "react-router-dom";
 import useInput from "../../hooks/useInput";
 import UserService from "../../services/UserService";
+import { Gender } from "../../types";
 import Loading from "../loading/Loading";
 import * as S from "./style";
 
 function Form() {
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState<boolean>(false);
+  const [gender, setGender] = useState<Gender>("male");
   const [email, handleEmailChange] = useInput("");
   const [username, handleUsernameChange] = useInput("");
   const [password, handlePasswordChange] = useInput("");
   const [passwordConfirm, handlePasswordConfirmChange] = useInput("");
-  const [loading, setLoading] = useState<boolean>(false);
-
-  const [user, setUser] = useRecoilState(userState);
+  const [major, handleMajorChange] = useInput("");
+  const [phone, handlePhoneChange] = useInput("");
+  const [studentId, handleStudentIdChange] = useInput("");
 
   const mutation = useMutation(UserService.signUp, {
     onMutate: () => {
       setLoading(true);
     },
     onSuccess: (data) => {
-      console.log(data);
+      if (data.header.code === 200) {
+        navigate("/");
+      }
     },
     onSettled: () => {
       setLoading(false);
     },
   });
 
+  const handleGenderChange = (e: ChangeEvent<HTMLInputElement>) => {
+    e.target.value === "male" ? setGender("male") : setGender("female");
+  };
+
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    console.log({
+      email,
+      username,
+      password,
+      major,
+      phone,
+      studentId,
+      gender,
+    });
 
     if (password !== passwordConfirm) {
       alert("비밀번호와 비밀번호 확인이 다릅니다.");
@@ -40,12 +59,12 @@ function Form() {
       email,
       username,
       password,
+      major,
+      phone,
+      studentId,
+      gender,
     });
   };
-
-  useEffect(() => {
-    console.log(user);
-  }, [user]);
 
   if (loading) return <Loading />;
 
@@ -80,6 +99,48 @@ function Form() {
           value={passwordConfirm}
           onChange={handlePasswordConfirmChange}
         />
+        <S.Label htmlFor="major">학과</S.Label>
+        <S.Input
+          type="text"
+          id="major"
+          value={major}
+          onChange={handleMajorChange}
+        />
+        <S.Label htmlFor="phone">연락처</S.Label>
+        <S.Input
+          type="text"
+          id="phone"
+          value={phone}
+          onChange={handlePhoneChange}
+        />
+        <S.Label htmlFor="studentId">학번</S.Label>
+        <S.Input
+          type="text"
+          id="studentId"
+          value={studentId}
+          onChange={handleStudentIdChange}
+        />
+        <span>성별</span>
+        <div>
+          <S.Label htmlFor="male">남</S.Label>
+          <S.Label htmlFor="female">여</S.Label>
+          <S.Input
+            type="radio"
+            id="male"
+            name="gender"
+            value="male"
+            checked={gender === "male"}
+            onChange={handleGenderChange}
+          />
+          <S.Input
+            type="radio"
+            id="female"
+            name="gender"
+            value="female"
+            checked={gender === "female"}
+            onChange={handleGenderChange}
+          />
+        </div>
         <S.Button type="submit">회원 가입</S.Button>
       </S.StyledForm>
     </S.Base>

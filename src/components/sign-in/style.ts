@@ -1,3 +1,4 @@
+import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 
 export const Base = styled.div`
@@ -5,7 +6,7 @@ export const Base = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: calc(100vh - 100px);
 `;
 
 export const StyledForm = styled.form`
@@ -31,7 +32,7 @@ export const Label = styled.label`
   margin-bottom: 0.5rem;
 `;
 
-export const Input = styled.input`
+export const Input = styled.input<{ validate: boolean }>`
   height: 32px;
   margin-bottom: 0.5rem;
   padding: 0.2rem 0.6rem;
@@ -39,7 +40,17 @@ export const Input = styled.input`
   border: 1px solid #b9bdbe;
   outline: none;
 
+  ${({ validate }) =>
+    validate &&
+    css`
+      background-color: #ff1818;
+    `}
+
   &::placeholder {
     color: #b9bdbe;
   }
+`;
+
+export const Error = styled.p`
+  color: #ff1818;
 `;
