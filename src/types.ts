@@ -1,5 +1,3 @@
-export type Gender = "male" | "female";
-
 export interface ReqSignIn {
   email: string;
   password: string;
@@ -10,7 +8,7 @@ export interface ReqSignUp extends ReqSignIn {
   major: string;
   phone: string;
   studentId: string;
-  gender: Gender;
+  gender: string;
 }
 
 export interface UserState {
@@ -18,9 +16,9 @@ export interface UserState {
   email: string;
   username: string;
   token: string;
-  // gender: keyof typeof Gender;
-  // major: string;
-  // studentId: string;
+  gender: string;
+  major: string;
+  studentId: string;
 }
 
 export interface ResponseData<T> {

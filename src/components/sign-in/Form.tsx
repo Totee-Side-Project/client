@@ -15,8 +15,7 @@ function Form() {
   const [email, handleEmailChange] = useInput("");
   const [password, handlePasswordChange] = useInput("");
   const [loading, setLoading] = useState<boolean>(false);
-  const [emailError, setEmailError] = useState<string>("");
-  const [passwordError, setPasswordError] = useState<string>("");
+  const [error, setError] = useState<string>("");
 
   const setUser = useSetRecoilState(userState);
 
@@ -26,7 +25,7 @@ function Form() {
     },
     onSuccess: (data) => {
       if (data.header.code === 200) {
-        TokenService.set(data.body.data.token);
+        // TokenService.set(data.body.data.token);
         setUser(data.body.data);
       }
     },
@@ -38,18 +37,13 @@ function Form() {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (!email.trim()) {
-      setEmailError(ERROR_MESSAGE.require);
+    if (!email.trim() || !password.trim()) {
+      setError(ERROR_MESSAGE.require);
       return;
     }
 
     if (!EMAIL_REGEX.test(email)) {
-      setEmailError(ERROR_MESSAGE.email);
-      return;
-    }
-
-    if (!EMAIL_REGEX.test(email)) {
-      setEmailError(ERROR_MESSAGE.email);
+      setError(ERROR_MESSAGE.email);
       return;
     }
 
@@ -63,22 +57,19 @@ function Form() {
       <S.StyledForm onSubmit={handleSubmit}>
         <S.Label htmlFor="email">이메일</S.Label>
         <S.Input
-          type="email"
+          type="text"
           id="email"
           value={email}
           onChange={handleEmailChange}
-          validate={emailError ? true : false}
         />
-        <Error>{emailError}</Error>
         <S.Label htmlFor="pw">비밀번호</S.Label>
         <S.Input
           type="password"
           id="pw"
           value={password}
           onChange={handlePasswordChange}
-          validate={passwordError ? true : false}
         />
-        <Error>{passwordError}</Error>
+        <Error>{error}</Error>
         <S.Button type="submit">로그인</S.Button>
       </S.StyledForm>
     </S.Base>

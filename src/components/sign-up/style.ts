@@ -1,3 +1,4 @@
+import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 
 export const Base = styled.div`
@@ -31,15 +32,22 @@ export const Label = styled.label`
   margin-bottom: 0.5rem;
 `;
 
-export const Input = styled.input`
+const inputStyle = css`
   height: 32px;
   margin-bottom: 0.5rem;
   padding: 0.2rem 0.6rem;
   border-radius: 4px;
   border: 1px solid #b9bdbe;
   outline: none;
+`;
+
+export const Input = styled.input`
+  ${inputStyle};
 
   &::placeholder {
     color: #b9bdbe;
   }
+`;
+export const Select = styled.select`
+  ${inputStyle};
 `;
