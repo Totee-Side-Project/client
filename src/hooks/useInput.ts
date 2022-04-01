@@ -2,11 +2,7 @@ import { ChangeEvent, useCallback, useState } from "react";
 
 function useInput(
   initValue = ""
-): [
-  string,
-  (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void,
-  React.Dispatch<React.SetStateAction<string>>
-] {
+): [string, (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void] {
   const [value, setValue] = useState<string>(initValue);
 
   const handleChange = useCallback(
@@ -15,7 +11,7 @@ function useInput(
     []
   );
 
-  return [value, handleChange, setValue];
+  return [value, handleChange];
 }
 
 export default useInput;

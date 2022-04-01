@@ -5,7 +5,7 @@ export const Base = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: calc(100vh - 100px);
 `;
 
 export const StyledForm = styled.form`

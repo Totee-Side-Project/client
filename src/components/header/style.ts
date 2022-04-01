@@ -10,8 +10,7 @@ export const Base = styled.header`
   right: 0;
   height: 100px;
   padding: 0 30px;
-  box-shadow: inset 0 0 5px 5px rgba(0, 0, 0, 0.05);
-  background-color: #fff;
+  background-color: transparent;
   z-index: 10;
 
   > span {

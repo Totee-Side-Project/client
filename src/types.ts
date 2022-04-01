@@ -1,8 +1,3 @@
-enum Gender {
-  male = "male",
-  female = "female",
-}
-
 export interface ReqSignIn {
   email: string;
   password: string;
@@ -10,6 +5,10 @@ export interface ReqSignIn {
 
 export interface ReqSignUp extends ReqSignIn {
   username: string;
+  major: string;
+  phone: string;
+  studentId: string;
+  gender: string;
 }
 
 export interface UserState {
@@ -17,9 +16,9 @@ export interface UserState {
   email: string;
   username: string;
   token: string;
-  // gender: keyof typeof Gender;
-  // major: string;
-  // studentId: string;
+  gender: string;
+  major: string;
+  studentId: string;
 }
 
 export interface ResponseData<T> {
@@ -28,6 +27,6 @@ export interface ResponseData<T> {
     message: string;
   };
   body: {
-    token: T;
+    data: T;
   };
 }
