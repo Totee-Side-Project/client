@@ -25,7 +25,7 @@ function Form() {
     },
     onSuccess: (data) => {
       if (data.header.code === 200) {
-        // TokenService.set(data.body.data.token);
+        TokenService.set(data.body.data.token);
         setUser(data.body.data);
       }
     },

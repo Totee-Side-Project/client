@@ -3,10 +3,13 @@ import Home from "./pages/Home";
 import Header from "./components/header/Header";
 import SignInPage from "./pages/SignInPage";
 import SignUpPage from "./pages/SignUpPage";
+import WritePage from "./pages/WritePage";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { userState, userToken } from "./atoms";
 import { useEffect } from "react";
 import UserService from "./services/UserService";
+
+import ListPage from "./pages/ListPage";
 
 function App() {
   const setUser = useSetRecoilState(userState);
@@ -27,6 +30,8 @@ function App() {
     <>
       <Header />
       <Routes>
+        <Route path="list" element={<ListPage/>}/>
+        <Route path="write" element={<WritePage/>} />
         <Route path="signin" element={<SignInPage />} />
         <Route path="signup" element={<SignUpPage />} />
         <Route path="/" element={<Home />} />
