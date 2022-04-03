@@ -11,14 +11,9 @@ export interface ReqSignUp extends ReqSignIn {
   gender: string;
 }
 
-export interface UserState {
+export interface UserState extends ReqSignUp {
   id: string;
-  email: string;
-  username: string;
   token: string;
-  gender: string;
-  major: string;
-  studentId: string;
 }
 
 export interface ResponseData<T> {

@@ -1,23 +1,23 @@
-import { ChangeEvent, FormEvent, useState } from "react";
-import { useMutation } from "react-query";
-import { useNavigate } from "react-router-dom";
-import { ERROR_MESSAGE } from "../../constants/message";
-import useInput from "../../hooks/useInput";
-import { EMAIL_REGEX, PHONE_REGEX } from "../../lib/regExp";
-import UserService from "../../services/UserService";
-import { ReqSignUp } from "../../types";
-import Error from "../error/Error";
-import Loading from "../loading/Loading";
-import * as S from "./style";
+import { ChangeEvent, FormEvent, useState } from 'react';
+import { useMutation } from 'react-query';
+import { useNavigate } from 'react-router-dom';
+import { ERROR_MESSAGE } from '../../constants/message';
+import useInput from '../../hooks/useInput';
+import { EMAIL_REGEX, PHONE_REGEX } from '../../lib/regExp';
+import UserService from '../../services/UserService';
+import { ReqSignUp } from '../../types';
+import Error from '../error/Error';
+import Loading from '../loading/Loading';
+import * as S from './style';
 
 const initialForm: ReqSignUp = {
-  email: "",
-  gender: "male",
-  major: "",
-  password: "",
-  phone: "",
-  studentId: "",
-  username: "",
+  email: '',
+  gender: 'male',
+  major: '',
+  password: '',
+  phone: '',
+  studentId: '',
+  username: '',
 };
 
 function Form() {
@@ -26,8 +26,8 @@ function Form() {
   const [userInfo, setUserInfo] = useState<ReqSignUp>(initialForm);
   const { email, gender, major, password, phone, studentId, username } =
     userInfo;
-  const [passwordConfirm, handlePasswordConfirmChange] = useInput("");
-  const [error, setError] = useState<string>("");
+  const [passwordConfirm, handlePasswordConfirmChange] = useInput('');
+  const [error, setError] = useState<string>('');
 
   const mutation = useMutation(UserService.signUp, {
     onMutate: () => {
@@ -35,7 +35,7 @@ function Form() {
     },
     onSuccess: (data) => {
       if (data.header.code === 200) {
-        navigate("/signin");
+        navigate('/signin');
       }
     },
     onSettled: () => {
@@ -75,7 +75,7 @@ function Form() {
     }
 
     if (password !== passwordConfirm) {
-      setError("비밀번호와 비밀번호 확인이 다릅니다.");
+      setError('비밀번호와 비밀번호 확인이 다릅니다.');
       return;
     }
 
@@ -108,7 +108,7 @@ function Form() {
           value={email}
           onChange={handleUserInfoChange}
         />
-        <S.Label htmlFor="username">이름</S.Label>
+        <S.Label htmlFor="username">닉네임</S.Label>
         <S.Input
           type="text"
           id="username"
