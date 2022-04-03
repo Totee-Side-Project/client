@@ -21,7 +21,7 @@ export const Input = styled.input`
   border-bottom: 2px solid #ccc;
   font-size: 3rem;
   font-weight: 630;
-  margin: 4% auto 0%;
+  margin: 4% auto;
   width: 70%;
   height: 80px;
   &:focus{

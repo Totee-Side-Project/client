@@ -108,7 +108,7 @@ function Form() {
           value={email}
           onChange={handleUserInfoChange}
         />
-        <S.Label htmlFor="username">이름</S.Label>
+        <S.Label htmlFor="username">닉네임</S.Label>
         <S.Input
           type="text"
           id="username"

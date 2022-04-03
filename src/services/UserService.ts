@@ -1,9 +1,15 @@
 import axios from "axios";
 import { ReqSignIn, ReqSignUp, ResponseData, UserState } from "../types";
+import { PostDataType } from "../types/postData";
 
-const BASE_URL = `http://totee-web-backend.us-west-2.elasticbeanstalk.com`;
+const BASE_URL = `https://api.totee.link`
 
 export default class UserService {
+  static TOKEN :string;
+  constructor() {
+    UserService.TOKEN = localStorage.getItem('access_token') as string;
+  }
+  
   public static async signIn(
     reqData: ReqSignIn
   ): Promise<ResponseData<UserState>> {
@@ -26,4 +32,13 @@ export default class UserService {
     });
     return response.data;
   }
+
+  public static postPostData = async (postData:PostDataType) => {
+    return await axios.post(`${BASE_URL}/api/v1/post`,postData,{
+      headers: {
+        Authorization: `Bearer ${this.TOKEN}`,
+      },
+    })
+  }
+  
 }
