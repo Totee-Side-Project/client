@@ -1,14 +1,12 @@
 import axios from "axios";
 import { ReqSignIn, ReqSignUp, ResponseData, UserState } from "../types";
 import { PostDataType } from "../types/postData";
+import TokenService from "./TokenService";
 
 const BASE_URL = `https://api.totee.link`
 
 export default class UserService {
-  static TOKEN :string;
-  constructor() {
-    UserService.TOKEN = localStorage.getItem('access_token') as string;
-  }
+
   
   public static async signIn(
     reqData: ReqSignIn
@@ -33,12 +31,40 @@ export default class UserService {
     return response.data;
   }
 
+  public static async postPost(token : string) {
+    const repose = await axios.post(`${BASE_URL}/api/v1/post`,{
+      hearders:{
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return repose.data;
+  }
+
+  // public static async postPostData(
+  //     postData: PostDataType,
+  //     // token:string
+  // ){
+  //   const reponse = await axios.post(`${BASE_URL}/api/v1/post`, postData,{
+  //     headers: {
+  //       Authorization: `Bearer ${token}`,
+  //     }
+  //   });
+  //   return reponse.data;
+  // }
+
+  static TOKEN :string;
+  constructor() {
+    UserService.TOKEN = localStorage.getItem('access_token') as string;
+    // UserService.TOKEN = TokenService.get() as string;
+  }
+
   public static postPostData = async (postData:PostDataType) => {
     return await axios.post(`${BASE_URL}/api/v1/post`,postData,{
       headers: {
-        Authorization: `Bearer ${this.TOKEN}`,
-      },
-    })
+        Authorization: `Bearer ${UserService.TOKEN}`,
+      }
+    });
   }
+
   
 }

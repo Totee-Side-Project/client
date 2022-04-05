@@ -1,6 +1,6 @@
 export interface PostDataType{
-    title: string;
-    intro: string;
-    content: string;
-    token: string;
+    title: any;
+    // intro: string;
+    content: any;
+    // token: string;
 }

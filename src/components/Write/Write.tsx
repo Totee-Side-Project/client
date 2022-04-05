@@ -6,21 +6,24 @@ import {useState, ChangeEvent} from 'react';
 import axios from "axios";
 import { useMutation } from "react-query";
 import UserService from '../../services/UserService';
+import TokenService from '../../services/TokenService';
 
 
 const Write = () => {
+
     const [loading, setLoading] = useState<boolean>(false);
 
     const [post,setPost] = useState(
         {
             title: "",
-            intro: "",
+            // intro: "",
             content: "",
-            token: ""
+            // token: ""
         }
     );
 
-    const postOnChagne = (e :ChangeEvent<HTMLInputElement>) => {
+
+    const postOnChagne = (e :ChangeEvent<HTMLInputElement|HTMLTextAreaElement>) => {
         const { name, value } = e.target;
 
         setPost((a)=>({
@@ -35,8 +38,9 @@ const Write = () => {
         onMutate: () => {
             setLoading(true);
         },
-        onSuccess: (post) => {
-            alert('등록 완료!');
+        onSuccess: () => {
+            // alert('등록 완료!');
+            console.log("등록 완료 !")
         },
         onSettled: () => {
             setLoading(false);
@@ -46,10 +50,14 @@ const Write = () => {
 
     const onSubmit = () => {
         mutation.mutate(post);
+        console.log(post);
+
+        // console.log(UserService.TOKEN);
     }
 
 
     console.log({post});
+    
     return (
         <S.Base>
             <S.StyledForm onSubmit={onSubmit}>
@@ -60,26 +68,24 @@ const Write = () => {
                     onChange={postOnChagne}
                     placeholder="제목을 입력해주세요"
                 />
-                <S.Input
-                    type="text"
+                {/*<S.label>*/}
+                {/*    <input type="radio" name="choose"/>멘토&멘티*/}
+                {/*</S.label>*/}
+                {/*<S.label>*/}
+                {/*    <input type="radio" name="choose" value="study"/>스터디*/}
+                {/*</S.label>*/}
+                <S.textarea
                     name="content"
                     value={post.content}
                     onChange={postOnChagne}
-                    placeholder="제목을 입력해주세요"
-                />
-                <S.label>
-                    <input type="radio" name="choose"/>멘토&멘티
-                </S.label>
-                <S.label>
-                    <input type="radio" name="choose" value="study"/>스터디
-                </S.label>
-                <S.textarea
-                    name="content"
-                    // value={post.content}
                     placeholder='내용을 입력해주세요 !'/>
                 <S.btn>
                     <S.Button>
-                        <Link to="/">취소</Link>
+                        {/*<Link to="/">취소</Link>*/}
+                        <span onClick={()=>{
+                            console.log(UserService.TOKEN);
+                            console.log(TokenService.get());
+                        }}/>
                     </S.Button>
                 <S.Button type="submit">등록</S.Button>
                 </S.btn>
