@@ -31,37 +31,16 @@ export default class UserService {
     return response.data;
   }
 
-  public static async postPost(token : string) {
-    const repose = await axios.post(`${BASE_URL}/api/v1/post`,{
-      hearders:{
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    return repose.data;
-  }
-
-  // public static async postPostData(
-  //     postData: PostDataType,
-  //     // token:string
-  // ){
-  //   const reponse = await axios.post(`${BASE_URL}/api/v1/post`, postData,{
-  //     headers: {
-  //       Authorization: `Bearer ${token}`,
-  //     }
-  //   });
-  //   return reponse.data;
-  // }
 
   static TOKEN :string;
   constructor() {
     UserService.TOKEN = localStorage.getItem('access_token') as string;
-    // UserService.TOKEN = TokenService.get() as string;
   }
 
   public static postPostData = async (postData:PostDataType) => {
     return await axios.post(`${BASE_URL}/api/v1/post`,postData,{
       headers: {
-        Authorization: `Bearer ${UserService.TOKEN}`,
+        Authorization: `Bearer ${localStorage.getItem('access_token')}`,
       }
     });
   }

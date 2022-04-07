@@ -16,21 +16,24 @@ const Write = () => {
     const [post,setPost] = useState(
         {
             title: "",
-            // intro: "",
             content: "",
-            // token: ""
         }
     );
 
 
-    const postOnChagne = (e :ChangeEvent<HTMLInputElement|HTMLTextAreaElement>) => {
+    const postOnChange = (e :ChangeEvent<HTMLInputElement|HTMLTextAreaElement>) => {
         const { name, value } = e.target;
 
         setPost((a)=>({
             ...a,
             [name]: value,
         }));
+    };
 
+
+    const onSubmit = () => {
+        mutation.mutate(post);
+        console.log(post);
     };
 
 
@@ -39,7 +42,6 @@ const Write = () => {
             setLoading(true);
         },
         onSuccess: () => {
-            // alert('등록 완료!');
             console.log("등록 완료 !")
         },
         onSettled: () => {
@@ -48,63 +50,20 @@ const Write = () => {
     });
 
 
-    const onSubmit = () => {
-        mutation.mutate(post);
-        console.log(post);
-
-        // console.log(UserService.TOKEN);
-    }
-
-
-    console.log({post});
+    // console.log({post});
     
     return (
+
         <S.Base>
-            <S.StyledForm onSubmit={onSubmit}>
-                <S.Input
-                    type="text"
-                    name="title"
-                    value={post.title}
-                    onChange={postOnChagne}
-                    placeholder="제목을 입력해주세요"
-                />
-                {/*<S.label>*/}
-                {/*    <input type="radio" name="choose"/>멘토&멘티*/}
-                {/*</S.label>*/}
-                {/*<S.label>*/}
-                {/*    <input type="radio" name="choose" value="study"/>스터디*/}
-                {/*</S.label>*/}
-                <S.textarea
-                    name="content"
-                    value={post.content}
-                    onChange={postOnChagne}
-                    placeholder='내용을 입력해주세요 !'/>
-                <S.btn>
-                    <S.Button>
-                        {/*<Link to="/">취소</Link>*/}
-                        <span onClick={()=>{
-                            console.log(UserService.TOKEN);
-                            console.log(TokenService.get());
-                        }}/>
-                    </S.Button>
-                <S.Button type="submit">등록</S.Button>
-                </S.btn>
-            </S.StyledForm>
+            <div>
+                <S.Input type="text" name="title" value={post.title} onChange={postOnChange} placeholder="제목을 입력해주세요"/>
+                <S.textarea name="content" value={post.content} onChange={postOnChange} placeholder="내용을 입력해주세요"/>
+            </div>
+            <S.Button onClick={onSubmit}>등록</S.Button>
         </S.Base>
+
     );
 };
 
-{/*<S.ul>*/}
-{/*    <S.li id='li'>*/}
-{/*        <S.label>언어 선택</S.label>*/}
-{/*        <S.Select placeholder="프로젝트/스터디 진행 언어 선택">*/}
-{/*            <option>언어 선택</option>*/}
-{/*            <option>C</option>*/}
-{/*            <option>C++</option>*/}
-{/*            <option>C#</option>*/}
-{/*            <option>spring</option>*/}
-{/*        </S.Select>*/}
-{/*    </S.li>*/}
-{/*</S.ul>*/}
 
 export default Write;
