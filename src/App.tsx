@@ -7,6 +7,7 @@ import { useRecoilValue, useSetRecoilState } from "recoil";
 import { userState, userToken } from "./atoms";
 import { useEffect } from "react";
 import UserService from "./services/UserService";
+import WritePage from "./pages/WritePage";
 
 function App() {
   const setUser = useSetRecoilState(userState);
@@ -27,6 +28,7 @@ function App() {
     <>
       <Header />
       <Routes>
+        <Route path="write" element={<WritePage/>} />
         <Route path="signin" element={<SignInPage />} />
         <Route path="signup" element={<SignUpPage />} />
         <Route path="/" element={<Home />} />
