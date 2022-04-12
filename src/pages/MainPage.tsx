@@ -4,8 +4,8 @@ import List from '../components/post/List';
 function MainPage() {
   return (
     <>
-      <Banner />
-      <List />
+      {/* <Banner />
+      <List /> */}
     </>
   );
 }

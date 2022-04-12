@@ -26,6 +26,11 @@ export interface ResponseData<T> {
   };
 }
 
+export interface ReqPostDataType {
+  title: string;
+  content: string;
+}
+
 export interface Post {
   category: null;
   content: string;
@@ -35,7 +40,10 @@ export interface Post {
   postId: number;
   status: boolean;
   title: string;
-  user: { username: 'uu'; email: 'rulu1@naver.com' };
+  user: {
+    username: string;
+    email: string;
+  };
   view: number;
 }
 
