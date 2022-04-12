@@ -25,3 +25,8 @@ export interface ResponseData<T> {
     data: T;
   };
 }
+
+export interface PostDataType{
+  title: string;
+  content: string;
+}
