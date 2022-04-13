@@ -17,12 +17,14 @@ export const Input = styled.input`
   margin: 4% auto;
   width: 70%;
   height: 80px;
-  &:focus{
+
+  &:focus {
     outline: none;
     border-bottom: 2px solid #ccc;
     text-decoration: none;
   }
-  @media(max-width: 540px){
+
+  @media (max-width: 540px) {
     padding-top: 10px;
     font-size: 20px;
     height: 40px;
@@ -38,13 +40,17 @@ export const textarea = styled.textarea`
   height: 500px;
   font-size: 20px;
   padding: 20px;
-  &::placeholder{
+
+  &::placeholder {
     font-style: italic;
     font-family: "210 스무살의봄 L";
-  };
-  &:focus{
+  }
+;
+
+  &:focus {
     outline: gray;
-  };
+  }
+;
 `;
 
 export const Button = styled.button`
@@ -58,3 +64,9 @@ export const Button = styled.button`
   border: none;
   border-radius: 3px;
 `;
+
+export const Label = styled.label`
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+`

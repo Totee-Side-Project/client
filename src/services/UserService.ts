@@ -1,18 +1,18 @@
 import axios from "axios"
-import { ReqSignIn, ReqSignUp, ResponseData, UserState } from "../types"
+import {ReqSignIn, ReqSignUp, ResponseData, UserState} from "../types"
 
 const BASE_URL = `https://api.totee.link`
 
 export default class UserService {
   public static async signIn(
-    reqData: ReqSignIn
+      reqData: ReqSignIn
   ): Promise<ResponseData<UserState>> {
     const response = await axios.post(`${BASE_URL}/auth/signin`, reqData)
     return response.data
   }
 
   public static async signUp(
-    reqData: ReqSignUp
+      reqData: ReqSignUp
   ): Promise<ResponseData<{ message: string }>> {
     const response = await axios.post(`${BASE_URL}/auth/signup`, reqData)
     return response.data
