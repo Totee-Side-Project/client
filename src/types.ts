@@ -41,7 +41,6 @@ export interface Post {
   category: null;
   content: string;
   created_at: string;
-  id: number;
   intro: null;
   postId: number;
   status: boolean;

@@ -10,7 +10,7 @@ interface Props {
 function Item({ post }: Props) {
   return (
     <S.Item>
-      <Link to={`/post/${post.id}`}>{post.title}</Link>
+      <Link to={`/post/${post.postId}`}>{post.title}</Link>
     </S.Item>
   );
 }

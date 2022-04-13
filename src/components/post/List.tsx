@@ -12,7 +12,7 @@ function List() {
   return (
     <S.List>
       {data?.body.data.content.map((post) => (
-        <Item key={post.id} post={post} />
+        <Item key={post.postId} post={post} />
       ))}
     </S.List>
   );

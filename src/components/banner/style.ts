@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
 export const Base = styled.section`
+  padding: 30px 10px;
   background-color: #fff;
   text-align: center;
 `;
@@ -11,6 +12,12 @@ export const Content = styled.p`
 
   :first-of-type {
     font-weight: 700;
+  }
+
+  :last-of-type {
+    @media (max-width: 540px) {
+      display: none;
+    }
   }
 `;
 

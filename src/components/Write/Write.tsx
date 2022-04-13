@@ -1,16 +1,10 @@
 import { ChangeEvent, useState } from 'react';
 import { useMutation } from 'react-query';
-import { useNavigate } from 'react-router-dom';
-import { useRecoilValue } from 'recoil';
-import { userToken } from '../../atoms';
 import PostService from '../../services/PostService';
-import { ReqPostDataType } from '../../types';
 import Loading from '../loading/Loading';
 import * as S from './style';
 
 function Write() {
-  const navigate = useNavigate();
-  const token = useRecoilValue(userToken);
   const [loading, setLoading] = useState<boolean>(false);
 
   const [post, setPost] = useState({
@@ -24,8 +18,8 @@ function Write() {
   ) => {
     const { name, value } = e.target;
 
-    setPost((a) => ({
-      ...a,
+    setPost((prev) => ({
+      ...prev,
       [name]: value,
     }));
   };
@@ -34,20 +28,17 @@ function Write() {
     mutation.mutate(post);
   };
 
-  const mutation = useMutation(
-    (postData: ReqPostDataType) => PostService.addPost(postData),
-    {
-      onMutate: () => {
-        setLoading(true);
-      },
-      onSuccess: () => {
-        console.log('등록 완료 !');
-      },
-      onSettled: () => {
-        setLoading(false);
-      },
-    }
-  );
+  const mutation = useMutation(PostService.addPost, {
+    onMutate: () => {
+      setLoading(true);
+    },
+    onSuccess: () => {
+      console.log('등록 완료 !');
+    },
+    onSettled: () => {
+      setLoading(false);
+    },
+  });
 
   if (loading) return <Loading />;
 

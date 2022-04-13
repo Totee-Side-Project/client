@@ -1,14 +1,15 @@
 import { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import { useRecoilState, useSetRecoilState } from 'recoil';
+import { userState, userToken } from './atoms';
 import Header from './components/header/Header';
 import SignInPage from './pages/SignInPage';
 import SignUpPage from './pages/SignUpPage';
-import { useRecoilState, useSetRecoilState } from 'recoil';
-import { userState, userToken } from './atoms';
 import UserService from './services/UserService';
 import MainPage from './pages/MainPage';
 import PostPage from './pages/PostPage';
 import WritePage from './pages/WritePage';
+import NotFound from './pages/NotFound';
 import { applyToken, clearToken } from './lib/api';
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
         <Route path="signin" element={<SignInPage />} />
         <Route path="signup" element={<SignUpPage />} />
         <Route path="/" element={<MainPage />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   );
