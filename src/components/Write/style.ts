@@ -43,14 +43,12 @@ export const textarea = styled.textarea`
 
   &::placeholder {
     font-style: italic;
-    font-family: "210 스무살의봄 L";
+    font-family: '210 스무살의봄 L';
   }
-;
 
   &:focus {
     outline: gray;
   }
-;
 `;
 
 export const Button = styled.button`
@@ -69,4 +67,4 @@ export const Label = styled.label`
   display: block;
   margin: 20px auto;
   text-align: center;
-`
+`;
