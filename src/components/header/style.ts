@@ -1,5 +1,5 @@
-import styled from "@emotion/styled";
-import { Link } from "react-router-dom";
+import styled from '@emotion/styled';
+import { Link } from 'react-router-dom';
 
 export const Base = styled.header`
   display: flex;
@@ -10,7 +10,7 @@ export const Base = styled.header`
   right: 0;
   height: 100px;
   padding: 0 30px;
-  background-color: transparent;
+  background-color: #fff;
   z-index: 10;
 
   > span {

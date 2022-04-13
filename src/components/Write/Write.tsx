@@ -1,12 +1,15 @@
 import { ChangeEvent, useState } from 'react';
 import { useMutation } from 'react-query';
+import { useNavigate } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 import { userToken } from '../../atoms';
 import PostService from '../../services/PostService';
 import { ReqPostDataType } from '../../types';
+import Loading from '../loading/Loading';
 import * as S from './style';
 
 const Write = () => {
+  const navigate = useNavigate();
   const token = useRecoilValue(userToken);
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -30,13 +33,10 @@ const Write = () => {
     console.log(token);
 
     if (!token) {
-      return;
+      return navigate('/');
     }
 
-    console.log('통과');
-
     mutation.mutate(post);
-    console.log(post);
   };
 
   const mutation = useMutation(
@@ -52,14 +52,13 @@ const Write = () => {
 
         console.log('등록 완료 !');
       },
-      onError: (err: any) => {
-        console.log(err.response);
-      },
       onSettled: () => {
         setLoading(false);
       },
     }
   );
+
+  if (loading) return <Loading />;
 
   return (
     <S.Base>

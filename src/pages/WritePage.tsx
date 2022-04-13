@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 import { userState } from '../atoms';
-import Write from '../components/Write/Write';
+import Write from '../components/write/Write';
 
 function WritePage() {
   const navigate = useNavigate();
@@ -13,8 +13,6 @@ function WritePage() {
       navigate('/signin');
     }
   }, [user, navigate]);
-
-  console.log(user);
 
   return <Write />;
 }

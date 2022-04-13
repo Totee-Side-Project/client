@@ -1,4 +1,4 @@
-import { css } from "@emotion/react";
+import { css } from '@emotion/react';
 
 const globalStyle = css`
   html,
@@ -105,6 +105,7 @@ const globalStyle = css`
   }
   body {
     line-height: 1;
+    background-color: #f8f9fa;
   }
   ol,
   ul {
@@ -118,7 +119,7 @@ const globalStyle = css`
   blockquote:after,
   q:before,
   q:after {
-    content: "";
+    content: '';
     content: none;
   }
   table {

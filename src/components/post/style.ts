@@ -24,10 +24,12 @@ export const List = styled.ul`
 
 export const Item = styled.li`
   transition: 0.3s;
-  border: 1px solid;
+  border-radius: 20px;
+  background-color: #fff;
+  box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, 0.1);
   cursor: pointer;
 
   :hover {
-    transform: scale(1.1);
+    transform: scale(1.03);
   }
 `;

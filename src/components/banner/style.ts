@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
 export const Base = styled.section`
+  background-color: #fff;
   text-align: center;
 `;
 
@@ -13,8 +14,7 @@ export const Content = styled.p`
   }
 `;
 
-export const Text = styled.span`
-  /* display: inline-block; */
+export const Text = styled.strong`
   letter-spacing: 6px;
   color: #4f46e5;
 `;
