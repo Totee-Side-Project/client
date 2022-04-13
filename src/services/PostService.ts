@@ -13,4 +13,13 @@ export default class PostService {
     const response = await api.post('api/v1/post', postData);
     return response.data;
   }
+
+  // public static getPostData = async (getData: GetDataType) => {
+  //     return await axios.get(`${BASE_URL}/api/v1/post/3`, {
+  //             headers: {
+  //                 Authorization: `Bearer ${localStorage.getItem('access_token')}`,
+  //             }
+  //         }
+  //     );
+  // }
 }

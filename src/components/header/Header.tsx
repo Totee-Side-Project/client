@@ -1,17 +1,19 @@
 import { Link } from 'react-router-dom';
 import { useRecoilState, useSetRecoilState } from 'recoil';
 import { userState, userToken } from '../../atoms';
+import { clearToken } from '../../lib/api';
 import TokenService from '../../services/TokenService';
 import * as S from './style';
 
 function Header() {
   const [user, setUser] = useRecoilState(userState);
-  const token = useSetRecoilState(userToken);
+  const setToken = useSetRecoilState(userToken);
 
   const handleLogOut = () => {
     setUser(null);
-    token(null);
+    setToken(null);
     TokenService.remove();
+    clearToken();
   };
 
   return (

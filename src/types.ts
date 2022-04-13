@@ -29,6 +29,12 @@ export interface ResponseData<T> {
 export interface ReqPostDataType {
   title: string;
   content: string;
+  categoryName: string;
+}
+
+export interface GetDataType {
+  title: string;
+  content: string;
 }
 
 export interface Post {

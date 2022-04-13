@@ -8,7 +8,7 @@ import { ReqPostDataType } from '../../types';
 import Loading from '../loading/Loading';
 import * as S from './style';
 
-const Write = () => {
+function Write() {
   const navigate = useNavigate();
   const token = useRecoilValue(userToken);
   const [loading, setLoading] = useState<boolean>(false);
@@ -16,6 +16,7 @@ const Write = () => {
   const [post, setPost] = useState({
     title: '',
     content: '',
+    categoryName: '',
   });
 
   const postOnChange = (
@@ -30,12 +31,6 @@ const Write = () => {
   };
 
   const onSubmit = () => {
-    console.log(token);
-
-    if (!token) {
-      return navigate('/');
-    }
-
     mutation.mutate(post);
   };
 
@@ -43,13 +38,9 @@ const Write = () => {
     (postData: ReqPostDataType) => PostService.addPost(postData),
     {
       onMutate: () => {
-        console.log('loading');
-
         setLoading(true);
       },
-      onSuccess: (data) => {
-        console.log(data);
-
+      onSuccess: () => {
         console.log('등록 완료 !');
       },
       onSettled: () => {
@@ -70,6 +61,24 @@ const Write = () => {
           onChange={postOnChange}
           placeholder="제목을 입력해주세요"
         />
+        <S.Label>
+          <input
+            type="radio"
+            name="categoryName"
+            value="스터디"
+            onChange={postOnChange}
+          />
+          스터디
+        </S.Label>
+        <S.Label>
+          <input
+            type="radio"
+            name="categoryName"
+            value="멘토멘티"
+            onChange={postOnChange}
+          />
+          멘토&멘티
+        </S.Label>
         <S.textarea
           name="content"
           value={post.content}
@@ -80,6 +89,6 @@ const Write = () => {
       <S.Button onClick={onSubmit}>등록</S.Button>
     </S.Base>
   );
-};
+}
 
 export default Write;
