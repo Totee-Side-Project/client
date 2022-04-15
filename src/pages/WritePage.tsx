@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 import { userState } from '../atoms';
-import Write from '../components/write/Write';
 
 function WritePage() {
   const navigate = useNavigate();
@@ -14,7 +13,7 @@ function WritePage() {
     }
   }, [user, navigate]);
 
-  return <Write />;
+  return <div>Write</div>;
 }
 
 export default WritePage;
