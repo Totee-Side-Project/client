@@ -6,9 +6,15 @@ export default class PostService {
     page: number = 1,
     category: Category
   ): Promise<ResponseData<Posts>> {
-    const response = await api.get(
-      `api/v1/post/list/${category}?pageNumber=${page}`
-    );
+    let response: any;
+
+    if (category === '전체') {
+      response = await api.get(`api/v1/post/list?pageNumber=${page}`);
+    } else {
+      response = await api.get(
+        `api/v1/post/list/${category}?pageNumber=${page}`
+      );
+    }
     return response.data;
   }
 

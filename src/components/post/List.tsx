@@ -1,4 +1,4 @@
-import { MouseEvent, useRef, useState } from 'react';
+import { MouseEvent, useState } from 'react';
 import { useQuery } from 'react-query';
 import { AiFillBook } from 'react-icons/ai';
 import { FcConferenceCall } from 'react-icons/fc';
@@ -9,7 +9,7 @@ import * as S from './style';
 import { Category } from '../../types';
 
 function List() {
-  const [category, setCategory] = useState<Category>('스터디');
+  const [category, setCategory] = useState<Category>('전체');
 
   const handleCategoryChange = (e: MouseEvent<HTMLLIElement>) => {
     const text = e.currentTarget.innerText as Category;
@@ -25,11 +25,23 @@ function List() {
   return (
     <S.Base>
       <S.Categories>
-        <S.Category onClick={handleCategoryChange}>
+        <S.Category
+          onClick={handleCategoryChange}
+          isFocus={category === '전체'}
+        >
+          <S.CategoryName>전체</S.CategoryName>
+        </S.Category>
+        <S.Category
+          onClick={handleCategoryChange}
+          isFocus={category === '스터디'}
+        >
           <AiFillBook />
           <S.CategoryName>스터디</S.CategoryName>
         </S.Category>
-        <S.Category onClick={handleCategoryChange}>
+        <S.Category
+          onClick={handleCategoryChange}
+          isFocus={category === '멘토멘티'}
+        >
           <FcConferenceCall />
           <S.CategoryName>멘토멘티</S.CategoryName>
         </S.Category>

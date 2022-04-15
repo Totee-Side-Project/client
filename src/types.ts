@@ -37,7 +37,7 @@ export interface GetDataType {
   content: string;
 }
 
-export type Category = '스터디' | '멘토멘티';
+export type Category = '전체' | '스터디' | '멘토멘티';
 
 export interface Post {
   categoryName: Category;
