@@ -1,9 +1,14 @@
 import api from '../lib/api';
-import { Posts, ResponseData, ReqPostDataType } from '../types';
+import { Posts, ResponseData, ReqPostDataType, Category } from '../types';
 
 export default class PostService {
-  public static async getPosts(page: number = 1): Promise<ResponseData<Posts>> {
-    const response = await api.get(`api/v1/post/list?pageNumber=${page}`);
+  public static async getPosts(
+    page: number = 1,
+    category: Category
+  ): Promise<ResponseData<Posts>> {
+    const response = await api.get(
+      `api/v1/post/list/${category}?pageNumber=${page}`
+    );
     return response.data;
   }
 

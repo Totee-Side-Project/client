@@ -37,8 +37,10 @@ export interface GetDataType {
   content: string;
 }
 
+export type Category = '스터디' | '멘토멘티';
+
 export interface Post {
-  category: null;
+  categoryName: Category;
   content: string;
   created_at: string;
   intro: null;
@@ -47,7 +49,6 @@ export interface Post {
   title: string;
   user: {
     username: string;
-    email: string;
   };
   view: number;
 }

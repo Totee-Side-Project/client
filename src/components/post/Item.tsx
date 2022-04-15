@@ -15,6 +15,14 @@ function Item({ post }: Props) {
       <Link to={`/post/${post.postId}`}>
         <S.Wrapper>
           <S.Title>{post.title}</S.Title>
+          <S.ImageBox>
+            <S.Image
+              src={
+                post.categoryName === '스터디' ? '/study.png' : '/mentor.png'
+              }
+              alt={`${post.categoryName} 이미지`}
+            />
+          </S.ImageBox>
           <S.IconBox>
             <S.Info>
               <FaRegCommentDots /> 0

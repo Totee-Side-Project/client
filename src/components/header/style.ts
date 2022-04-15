@@ -25,7 +25,8 @@ export const Base = styled.header`
 `;
 
 export const Title = styled.h1`
-  letter-spacing: 6px;
+  font-size: 24px;
+  font-weight: 700;
 `;
 
 export const ButtonBox = styled.div`
