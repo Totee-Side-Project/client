@@ -54,24 +54,6 @@ function Write() {
           onChange={postOnChange}
           placeholder="제목을 입력해주세요"
         />
-        {/*<S.Label>*/}
-        {/*  <input*/}
-        {/*    type="radio"*/}
-        {/*    name="categoryName"*/}
-        {/*    value="스터디"*/}
-        {/*    onChange={postOnChange}*/}
-        {/*  />*/}
-        {/*  스터디*/}
-        {/*</S.Label>*/}
-        {/*<S.Label>*/}
-        {/*  <input*/}
-        {/*    type="radio"*/}
-        {/*    name="categoryName"*/}
-        {/*    value="멘토멘티"*/}
-        {/*    onChange={postOnChange}*/}
-        {/*  />*/}
-        {/*  멘토&멘티*/}
-        {/*</S.Label>*/}
         <S.Select
           name="categoryName"
           onChange={postOnChange}>
