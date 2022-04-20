@@ -68,3 +68,9 @@ export const Label = styled.label`
   margin: 20px auto;
   text-align: center;
 `;
+
+export const Select = styled.select`
+  display: block;
+  margin: 20px auto;
+  padding: 5px;
+`;
