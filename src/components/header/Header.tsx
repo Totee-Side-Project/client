@@ -20,7 +20,7 @@ function Header() {
     <>
       <S.Base>
         <S.Title>
-          <Link to="/">토티</Link>
+          <Link to="/"><img src='/toteelogo.png'/></Link>
         </S.Title>
         {user ? (
           <S.ButtonBox>

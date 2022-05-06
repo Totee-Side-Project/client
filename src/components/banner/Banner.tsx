@@ -8,6 +8,7 @@ function Banner() {
         <S.Text>토티</S.Text>
         에서 함께 할 멘토&amp;멘티를 찾아보세요
       </S.Content>
+        <S.Content><img src='/banner.png'/></S.Content>
     </S.Base>
   );
 }

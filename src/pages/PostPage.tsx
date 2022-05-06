@@ -1,9 +1,14 @@
 import { useParams } from 'react-router-dom';
+import Detailpage from '../components/detailpage/detailpage';
 
 function PostPage() {
-  const { id } = useParams();
+  const {id} = useParams();
 
-  return <div>{id}번 게시글</div>;
+  return (
+      <><>{id}번 게시글</>
+        <Detailpage/></>
+
+)
 }
 
 export default PostPage;
