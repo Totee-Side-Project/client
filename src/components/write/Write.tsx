@@ -14,7 +14,7 @@ function Write() {
   });
 
   const postOnChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement |HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
 
@@ -42,6 +42,8 @@ function Write() {
 
   if (loading) return <Loading />;
 
+  console.log(post);
+
   return (
     <S.Base>
       <div>
@@ -52,24 +54,13 @@ function Write() {
           onChange={postOnChange}
           placeholder="제목을 입력해주세요"
         />
-        <S.Label>
-          <input
-            type="radio"
-            name="categoryName"
-            value="스터디"
-            onChange={postOnChange}
-          />
-          스터디
-        </S.Label>
-        <S.Label>
-          <input
-            type="radio"
-            name="categoryName"
-            value="멘토멘티"
-            onChange={postOnChange}
-          />
-          멘토&멘티
-        </S.Label>
+        <S.Select
+          name="categoryName"
+          onChange={postOnChange}>
+          <option value="" selected disabled hidden>선택</option>
+          <option value="스터디">스터디</option>
+          <option value="멘토멘티">멘토멘티</option>
+        </S.Select>
         <S.textarea
           name="content"
           value={post.content}
