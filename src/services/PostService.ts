@@ -1,6 +1,6 @@
 import { AxiosResponse } from 'axios';
 import api from '../lib/api';
-import { Posts, ResponseData, ReqPostDataType, Category } from '../types';
+import { Posts, ResponseData, ReqPostDataType, Category, GetDataType } from '../types';
 
 export default class PostService {
   public static async getPosts(
@@ -17,6 +17,15 @@ export default class PostService {
       );
     }
 
+    return response.data;
+  }
+
+  public static async getPost(
+      postData: GetDataType,
+  ): Promise<ResponseData<Posts>> {
+    const response = await api.get(
+        `api/v1/post`
+    );
     return response.data;
   }
 

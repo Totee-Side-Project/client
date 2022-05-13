@@ -62,7 +62,7 @@ export const Item = styled.li`
   transition: 0.3s;
   border-radius: 20px;
   background-color: #fff;
-  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1);
   cursor: pointer;
 
   :hover {

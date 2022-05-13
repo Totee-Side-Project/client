@@ -1,9 +1,11 @@
 import { useParams } from 'react-router-dom';
+import Viewpage from '../components/viewpage/viewpage';
 
 function PostPage() {
-  const { id } = useParams();
 
-  return <div>{id}번 게시글</div>;
+  return (
+        <Viewpage/>
+)
 }
 
 export default PostPage;
