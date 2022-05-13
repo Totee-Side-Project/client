@@ -1,5 +1,6 @@
 import { MouseEvent, useState } from 'react';
-import { useQuery } from 'react-query';
+import { useInfiniteQuery } from 'react-query';
+import InfiniteScroll from 'react-infinite-scroller';
 import { AiFillBook } from 'react-icons/ai';
 import { FcConferenceCall } from 'react-icons/fc';
 import PostService from '../../services/PostService';
@@ -16,8 +17,13 @@ function List() {
     setCategory(text);
   };
 
-  const { data, isLoading } = useQuery(['posts', category], () =>
-    PostService.getPosts(1, category)
+  const { data, isLoading, hasNextPage, fetchNextPage } = useInfiniteQuery(
+    ['posts', category],
+    ({ pageParam = 0 }) => PostService.getPosts(pageParam, category),
+    {
+      getNextPageParam: (lastPage) =>
+        lastPage.body.data.last ? undefined : lastPage.body.data.number + 1,
+    }
   );
 
   if (isLoading) return <Loading />;
@@ -46,11 +52,15 @@ function List() {
           <S.CategoryName>멘토멘티</S.CategoryName>
         </S.Category>
       </S.Categories>
-      <S.List>
-        {data?.body.data.content.map((post) => (
-          <Item key={post.postId} post={post} />
-        ))}
-      </S.List>
+      <InfiniteScroll loadMore={() => fetchNextPage()} hasMore={hasNextPage}>
+        <S.List>
+          {data?.pages.map((pageData) =>
+            pageData.body.data.content.map((post) => (
+              <Item key={post.postId} post={post} />
+            ))
+          )}
+        </S.List>
+      </InfiniteScroll>
     </S.Base>
   );
 }

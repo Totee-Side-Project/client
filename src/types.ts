@@ -77,7 +77,7 @@ export interface Posts {
     sorted: boolean;
     unsorted: boolean;
   };
-  size: boolean;
-  totalElements: boolean;
-  totalPages: boolean;
+  size: number;
+  totalElements: number;
+  totalPages: number;
 }
