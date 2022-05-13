@@ -1,5 +1,6 @@
-import { MouseEvent, useRef, useState } from 'react';
-import { useQuery } from 'react-query';
+import { MouseEvent, useState } from 'react';
+import { useInfiniteQuery } from 'react-query';
+import InfiniteScroll from 'react-infinite-scroller';
 import { AiFillBook } from 'react-icons/ai';
 import { FcConferenceCall } from 'react-icons/fc';
 import PostService from '../../services/PostService';
@@ -9,15 +10,20 @@ import * as S from './style';
 import { Category } from '../../types';
 
 function List() {
-  const [category, setCategory] = useState<Category>('스터디');
+  const [category, setCategory] = useState<Category>('전체');
 
   const handleCategoryChange = (e: MouseEvent<HTMLLIElement>) => {
     const text = e.currentTarget.innerText as Category;
     setCategory(text);
   };
 
-  const { data, isLoading } = useQuery(['posts', category], () =>
-    PostService.getPosts(1, category)
+  const { data, isLoading, hasNextPage, fetchNextPage } = useInfiniteQuery(
+    ['posts', category],
+    ({ pageParam = 0 }) => PostService.getPosts(pageParam, category),
+    {
+      getNextPageParam: (lastPage) =>
+        lastPage.body.data.last ? undefined : lastPage.body.data.number + 1,
+    }
   );
 
   if (isLoading) return <Loading />;
@@ -25,20 +31,36 @@ function List() {
   return (
     <S.Base>
       <S.Categories>
-        <S.Category onClick={handleCategoryChange}>
+        <S.Category
+          onClick={handleCategoryChange}
+          isFocus={category === '전체'}
+        >
+          <S.CategoryName>전체</S.CategoryName>
+        </S.Category>
+        <S.Category
+          onClick={handleCategoryChange}
+          isFocus={category === '스터디'}
+        >
           <AiFillBook />
           <S.CategoryName>스터디</S.CategoryName>
         </S.Category>
-        <S.Category onClick={handleCategoryChange}>
+        <S.Category
+          onClick={handleCategoryChange}
+          isFocus={category === '멘토멘티'}
+        >
           <FcConferenceCall />
           <S.CategoryName>멘토멘티</S.CategoryName>
         </S.Category>
       </S.Categories>
-      <S.List>
-        {data?.body.data.content.map((post) => (
-          <Item key={post.postId} post={post} />
-        ))}
-      </S.List>
+      <InfiniteScroll loadMore={() => fetchNextPage()} hasMore={hasNextPage}>
+        <S.List>
+          {data?.pages.map((pageData) =>
+            pageData.body.data.content.map((post) => (
+              <Item key={post.postId} post={post} />
+            ))
+          )}
+        </S.List>
+      </InfiniteScroll>
     </S.Base>
   );
 }

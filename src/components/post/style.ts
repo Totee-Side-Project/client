@@ -21,16 +21,16 @@ export const Categories = styled.ul`
   margin: 30px 0 60px;
 `;
 
-export const Category = styled.li`
+export const Category = styled.li<{ isFocus: boolean }>`
   display: flex;
   align-items: center;
-
+  :not(:first-of-type) {
+    margin-left: 20px;
+  }
   font-size: 22px;
   cursor: pointer;
 
-  :last-of-type {
-    margin-left: 20px;
-  }
+  opacity: ${({ isFocus }) => (isFocus ? 1 : 0.5)};
 `;
 
 export const CategoryName = styled.span`
