@@ -13,7 +13,7 @@ export default class PostService {
   }
 
   public static async getPost(
-     postData: GetDataType,
+      postData: GetDataType,
   ): Promise<ResponseData<Posts>> {
     const response = await api.get(
         `api/v1/post`

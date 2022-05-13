@@ -22,6 +22,7 @@ export const Content = styled.p`
 `;
 
 export const Text = styled.strong`
+  margin-top: 10%;
   font-weight: 600;
-  color: #4f46e5;
+  color: #568A35;
 `;

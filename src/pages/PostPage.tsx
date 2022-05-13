@@ -1,13 +1,10 @@
 import { useParams } from 'react-router-dom';
-import Detailpage from '../components/detailpage/detailpage';
+import Viewpage from '../components/viewpage/viewpage';
 
 function PostPage() {
-  const {id} = useParams();
 
   return (
-      <><>{id}번 게시글</>
-        <Detailpage/></>
-
+        <Viewpage/>
 )
 }
 
