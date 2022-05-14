@@ -11,6 +11,7 @@ import PostPage from './pages/PostPage';
 import WritePage from './pages/WritePage';
 import NotFound from './pages/NotFound';
 import { applyToken, clearToken } from './lib/api';
+import { Footer } from './components/footer/style';
 
 function App() {
   const setUser = useSetRecoilState(userState);
