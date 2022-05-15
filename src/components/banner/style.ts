@@ -7,6 +7,9 @@ export const Base = styled.section`
 `;
 
 export const Content = styled.p`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   line-height: 2;
   font-size: 24px;
 
@@ -19,10 +22,8 @@ export const Content = styled.p`
       display: none;
     }
   }
-`;
 
-export const Text = styled.strong`
-  margin-top: 10%;
-  font-weight: 600;
-  color: #568A35;
+  > img {
+    margin-right: -10px;
+  }
 `;

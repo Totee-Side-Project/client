@@ -41,15 +41,14 @@ export type Category = '전체' | '스터디' | '멘토멘티';
 
 export interface Post {
   categoryName: Category;
+  commentCount: number;
   content: string;
-  created_at: string;
-  intro: null;
+  createdAt: string;
+  likeCount: number;
+  major: string;
   postId: number;
-  status: boolean;
   title: string;
-  user: {
-    username: string;
-  };
+  username: string;
   view: number;
 }
 
