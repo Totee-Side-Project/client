@@ -14,27 +14,35 @@ function Item({ post }: Props) {
     <S.Item>
       <Link to={`/post/${post.postId}`}>
         <S.Wrapper>
-          <S.Title>{post.title}</S.Title>
-          <S.ImageBox>
-            <S.Image
-              src={
-                post.categoryName === '스터디' ? '/study.png' : '/mentor.png'
-              }
-              alt={`${post.categoryName} 이미지`}
-            />
-          </S.ImageBox>
-          <S.IconBox>
-            <S.Info>
-              <FaRegCommentDots /> 0
-            </S.Info>
-            <S.Info>
-              <FaEye />
-              {post.view}
-            </S.Info>
-            <S.Info>
-              <AiFillHeart /> 0
-            </S.Info>
-          </S.IconBox>
+          <S.ImageWrapper>
+            <S.ImageBox>
+              <S.Image
+                src={
+                  post.categoryName === '스터디' ? '/study.png' : '/mentor.png'
+                }
+                alt={`${post.categoryName} 이미지`}
+              />
+            </S.ImageBox>
+          </S.ImageWrapper>
+          <S.ContentBox>
+            <S.Title>{post.title}</S.Title>
+            <S.InfoBox>
+              <S.Info isBold>
+                {`[${post.major}]`} {post.username}
+              </S.Info>
+              <S.IconBox>
+                <S.Info>
+                  <FaRegCommentDots /> {post.commentCount}
+                </S.Info>
+                <S.Info>
+                  <FaEye /> {post.view}
+                </S.Info>
+                <S.Info>
+                  <AiFillHeart /> {post.likeCount}
+                </S.Info>
+              </S.IconBox>
+            </S.InfoBox>
+          </S.ContentBox>
         </S.Wrapper>
       </Link>
     </S.Item>
