@@ -1,19 +1,20 @@
 import styled from '@emotion/styled';
 
 export const Base = styled.div`
-  display: flex;
+  display: block;
   //flex-direction: column;
   //align-items: center;
   //justify-content: center;
-  padding-bottom: 10px;
-  padding-left: 20%;
+  min-height: 100%;
+  padding: 20%;
+  
 `;
 
 export const Title = styled.div`
   font-weight: 800;
   font-size: 2.9rem;
   color: black;
-  margin-top: 10px;
+  //margin-top: 10px;
 `;
 
 export const Name = styled.div`
@@ -22,8 +23,13 @@ export const Name = styled.div`
   font-size: 17px;
   font-weight: 700;
   padding-right: 15px;
-  margin-top: 10%;
-  //border-right: 2px solid #e1e1e1;
+  border-right: 2px solid #e1e1e1;
+  display: inline-block;
+`;
+
+export const Date = styled.div`
+  padding-left: 15px;
+  display: inline-block;
 `;
 
 export const Content = styled.div`
@@ -32,9 +38,10 @@ export const Content = styled.div`
 `;
 
 export const NameWrapper = styled.div`
+  display: flex;
   margin-top: 32px;
   padding-bottom: 32px;
-  border-bottom: 3px solid seagreen;
+  border-bottom: 3px solid gray;
   border-bottom-width: 10%;
   grid-gap: 15px;
   gap: 15px;
@@ -46,10 +53,10 @@ export const TitleWrapper = styled.div`
 
 export const ContentWrapper = styled.div`
   width: 100%;
-  margin: 40px auto 0;
+  //margin: 40px auto 0;
   line-height: 1.7;
 `;
 
 export const iconWrapper = styled.div`
-  margin-top: 40%;
+  margin-top: 10px;
 `;

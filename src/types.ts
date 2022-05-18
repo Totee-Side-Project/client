@@ -42,7 +42,7 @@ export type Category = '전체' | '스터디' | '멘토멘티';
 export interface Post {
   categoryName: Category;
   content: string;
-  created_at: string;
+  createdAt: string;
   intro: null;
   postId: number;
   status: boolean;

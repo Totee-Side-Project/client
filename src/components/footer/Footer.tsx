@@ -5,10 +5,25 @@ function Footer() {
         <div>
             <S.Footer>
                 <S.Table>
-                    <S.Th>Created by</S.Th>
-                    <S.Tr>SM K</S.Tr>
-                    <S.Tr>Groovy</S.Tr>
-                    <S.Tr>Rulu</S.Tr>
+                    <caption>Created by</caption>
+                    <thead>
+                    <tr>
+                        <th>FE</th>
+                        <th>BE</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Groovy</td>
+                        <td>Marine</td>
+                    </tr>
+                    <tr>
+                        <td>Rulu</td>
+                    </tr>
+                    <tr>
+                        <td>Dubu</td>
+                    </tr>
+                    </tbody>
                 </S.Table>
             </S.Footer>
         </div>

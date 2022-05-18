@@ -5,7 +5,7 @@ export const Footer = styled.div`
   justify-content: center;
   background-color: white;
   background-image: linear-gradient(rgba(135,135,135,0.2));
-  position: relative;
+  //position: relative;
   display: flex;
   width: 100%;
   font-size: 15px;
@@ -23,7 +23,7 @@ export const Th = styled.tr`
   font-weight: bold;
 `;
 
-export const Tr = styled.tr`
+export const Td = styled.tr`
   display: flex;
   max-width: 120px;
   margin-bottom: 7px;
