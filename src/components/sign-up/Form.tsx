@@ -11,6 +11,7 @@ import Loading from '../loading/Loading';
 import * as S from './style';
 
 const initialForm: ReqSignUp = {
+  id: '',
   email: '',
   gender: 'male',
   major: '',
@@ -24,7 +25,7 @@ function Form() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState<boolean>(false);
   const [userInfo, setUserInfo] = useState<ReqSignUp>(initialForm);
-  const { email, gender, major, password, phone, studentId, username } =
+  const { id, email, gender, major, password, phone, studentId, username } =
     userInfo;
   const [passwordConfirm, handlePasswordConfirmChange] = useInput('');
   const [error, setError] = useState<string>('');
@@ -85,6 +86,7 @@ function Form() {
     }
 
     mutation.mutate({
+      id,
       email,
       username,
       password,
@@ -100,6 +102,14 @@ function Form() {
   return (
     <S.Base>
       <S.StyledForm onSubmit={handleSubmit}>
+        <S.Label htmlFor="id">아이디</S.Label>
+        <S.Input
+          type="text"
+          id="id"
+          name="id"
+          value={id}
+          onChange={handleUserInfoChange}
+        />
         <S.Label htmlFor="email">이메일</S.Label>
         <S.Input
           type="text"
