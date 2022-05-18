@@ -1,67 +1,58 @@
-import { FormEvent, useState } from "react"
-import { useMutation } from "react-query"
-import { useSetRecoilState } from "recoil"
-import { userState } from "../../atoms"
-import { ERROR_MESSAGE } from "../../constants/message"
-import useInput from "../../hooks/useInput"
-import { EMAIL_REGEX } from "../../lib/regExp"
-import TokenService from "../../services/TokenService"
-import UserService from "../../services/UserService"
-import Error from "../error/Error"
-import Loading from "../loading/Loading"
-import * as S from "./style"
+import { FormEvent, useState } from 'react';
+import { useMutation } from 'react-query';
+import { useSetRecoilState } from 'recoil';
+import { userState } from '../../atoms';
+import { ERROR_MESSAGE } from '../../constants/message';
+import useInput from '../../hooks/useInput';
+import TokenService from '../../services/TokenService';
+import UserService from '../../services/UserService';
+import Error from '../error/Error';
+import Loading from '../loading/Loading';
+import * as S from './style';
 
 function Form() {
-  const [email, handleEmailChange] = useInput("")
-  const [password, handlePasswordChange] = useInput("")
-  const [loading, setLoading] = useState<boolean>(false)
-  const [error, setError] = useState<string>("")
+  const [id, handleIdChange] = useInput('');
+  const [password, handlePasswordChange] = useInput('');
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string>('');
 
-  const setUser = useSetRecoilState(userState)
+  const setUser = useSetRecoilState(userState);
 
   const mutation = useMutation(UserService.signIn, {
     onMutate: () => {
-      setLoading(true)
+      setLoading(true);
     },
-    onSuccess: (data) => {
+    onSuccess: async (data) => {
       if (data.header.code === 200) {
-        TokenService.set(data.body.data.token)
-        setUser(data.body.data)
+        const token = data.body.token;
+        TokenService.set(token);
+        const user = await UserService.check(token);
+        setUser(user.body.data);
       }
     },
     onSettled: () => {
-      setLoading(false)
+      setLoading(false);
     },
-  })
+  });
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    if (!email.trim() || !password.trim()) {
-      setError(ERROR_MESSAGE.require)
-      return
+    if (!id.trim() || !password.trim()) {
+      setError(ERROR_MESSAGE.require);
+      return;
     }
 
-    if (!EMAIL_REGEX.test(email)) {
-      setError(ERROR_MESSAGE.email)
-      return
-    }
+    mutation.mutate({ id, password });
+  };
 
-    mutation.mutate({ email, password })
-  }
-
-  if (loading) return <Loading />
+  if (loading) return <Loading />;
 
   return (
     <S.Base>
       <S.StyledForm onSubmit={handleSubmit}>
-        <S.Label htmlFor="email">이메일</S.Label>
-        <S.Input
-          type="text"
-          id="email"
-          value={email}
-          onChange={handleEmailChange}
-        />
+        <S.Label htmlFor="id">아이디</S.Label>
+        <S.Input type="text" id="id" value={id} onChange={handleIdChange} />
         <S.Label htmlFor="pw">비밀번호</S.Label>
         <S.Input
           type="password"
@@ -73,7 +64,7 @@ function Form() {
         <S.Button type="submit">로그인</S.Button>
       </S.StyledForm>
     </S.Base>
-  )
+  );
 }
 
-export default Form
+export default Form;

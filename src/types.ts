@@ -1,9 +1,10 @@
 export interface ReqSignIn {
-  email: string;
+  id: string;
   password: string;
 }
 
 export interface ReqSignUp extends ReqSignIn {
+  email: string;
   username: string;
   major: string;
   phone: string;
@@ -14,6 +15,16 @@ export interface ReqSignUp extends ReqSignIn {
 export interface UserState extends ReqSignUp {
   id: string;
   token: string;
+}
+
+export interface ResponseToken {
+  header: {
+    code: number;
+    message: string;
+  };
+  body: {
+    token: string;
+  };
 }
 
 export interface ResponseData<T> {
@@ -47,6 +58,7 @@ export interface Post {
   likeCount: number;
   major: string;
   postId: number;
+  status: 'Y' | 'N';
   title: string;
   username: string;
   view: number;

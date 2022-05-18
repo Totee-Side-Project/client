@@ -18,8 +18,13 @@ export const Category = styled.li<{ isFocus: boolean }>`
   :not(:first-of-type) {
     margin-left: 20px;
   }
-  font-size: 22px;
+  font-size: 28px;
   cursor: pointer;
+  transition: 0.3s;
+
+  :hover {
+    transform: scale(1.1);
+  }
 
   opacity: ${({ isFocus }) => (isFocus ? 1 : 0.5)};
 `;
@@ -70,13 +75,22 @@ export const Wrapper = styled.div`
   height: 100%;
 `;
 
-export const Title = styled.h3`
-  font-weight: 600;
+export const Status = styled.span<{ isDone: boolean }>`
+  padding: 4px 10px;
+  border-radius: 20px;
+  background-color: ${({ isDone }) => (isDone ? '#878787' : '#0ac858')};
+  color: #fff;
+  font-size: 14px;
 `;
 
-export const ImageWrapper = styled.div`
+export const Title = styled.h3`
+  font-weight: 600;
+  margin-top: 2rem;
+`;
+
+export const ImageWrapper = styled.div<{ isDone: boolean }>`
   height: 50px;
-  background-color: #568a35;
+  background-color: ${({ isDone }) => (isDone ? '#878787' : '#568a35')};
 `;
 
 export const ImageBox = styled.div`

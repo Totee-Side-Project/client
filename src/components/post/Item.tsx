@@ -14,7 +14,7 @@ function Item({ post }: Props) {
     <S.Item>
       <Link to={`/post/${post.postId}`}>
         <S.Wrapper>
-          <S.ImageWrapper>
+          <S.ImageWrapper isDone={post.status === 'N'}>
             <S.ImageBox>
               <S.Image
                 src={
@@ -25,6 +25,9 @@ function Item({ post }: Props) {
             </S.ImageBox>
           </S.ImageWrapper>
           <S.ContentBox>
+            <S.Status isDone={post.status === 'N'}>
+              {post.status === 'Y' ? '모집중' : '모집완료'}
+            </S.Status>
             <S.Title>{post.title}</S.Title>
             <S.InfoBox>
               <S.Info isBold>
