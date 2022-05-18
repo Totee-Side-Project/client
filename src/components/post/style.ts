@@ -1,19 +1,10 @@
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 export const Base = styled.section`
-  width: 1300px;
+  max-width: 1200px;
   margin: auto;
   padding: 50px 30px;
-
-  @media (max-width: 1700px) {
-    width: 1100px;
-  }
-  @media (max-width: 1440px) {
-    width: 800px;
-  }
-  @media (max-width: 830px) {
-    width: 95%;
-  }
 `;
 
 export const Categories = styled.ul`
@@ -40,10 +31,10 @@ export const CategoryName = styled.span`
 
 export const List = styled.ul`
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 35px;
 
-  @media (max-width: 1700px) {
+  /* @media (max-width: 1700px) {
     grid-template-columns: repeat(4, 1fr);
   }
   @media (max-width: 1440px) {
@@ -54,11 +45,13 @@ export const List = styled.ul`
   }
   @media (max-width: 575px) {
     grid-template-columns: repeat(1, 1fr);
-  }
+  } */
 `;
 
 export const Item = styled.li`
-  padding: 24px;
+  overflow: hidden;
+  width: 350px;
+  height: 350px;
   transition: 0.3s;
   border-radius: 20px;
   background-color: #fff;
@@ -74,28 +67,46 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 100%;
 `;
 
 export const Title = styled.h3`
-  text-align: center;
   font-weight: 600;
 `;
 
-export const ImageBox = styled.div`
-  overflow: hidden;
-  width: 100%;
+export const ImageWrapper = styled.div`
   height: 50px;
-  margin: 30px auto;
-  text-align: center;
+  background-color: #568a35;
+`;
+
+export const ImageBox = styled.div`
+  position: relative;
+  top: 50%;
+  left: 10%;
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+  border-radius: 50%;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 1);
+  background-color: #fff;
 `;
 
 export const Image = styled.img`
-  width: 50px;
-  height: 50px;
+  width: 100%;
+`;
 
-  & + & {
-    margin-left: 8px;
-  }
+export const ContentBox = styled.div`
+  padding: 24px;
+  padding-top: 50px;
+`;
+
+export const InfoBox = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  padding-top: 14px;
+  border-top: 1px solid #ccc;
 `;
 
 export const IconBox = styled.div`
@@ -103,15 +114,25 @@ export const IconBox = styled.div`
   justify-content: flex-end;
 `;
 
-export const Info = styled.span`
+export const Info = styled.span<{ isBold?: boolean }>`
   display: flex;
-  margin-left: 10px;
-  font-size: 12px;
+  align-items: center;
+  font-size: 16px;
 
   > svg {
-    margin-right: 2px;
-    font-size: 14px;
+    margin-right: 4px;
+    font-size: 22px;
     color: #9a9a9a;
+  }
+
+  ${({ isBold }) =>
+    isBold &&
+    css`
+      font-weight: 700;
+    `}
+
+  :not(:first-of-type) {
+    margin-left: 10px;
   }
 
   :last-of-type {
