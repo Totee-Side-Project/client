@@ -2,12 +2,11 @@ import styled from '@emotion/styled';
 
 export const Base = styled.div`
   display: block;
-  //flex-direction: column;
-  //align-items: center;
-  //justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   min-height: 100%;
-  padding: 20%;
-  
+  padding: 10%;
 `;
 
 export const Title = styled.div`
@@ -58,5 +57,5 @@ export const ContentWrapper = styled.div`
 `;
 
 export const iconWrapper = styled.div`
-  margin-top: 10px;
+  //margin-top: 10px;
 `;
