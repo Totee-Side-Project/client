@@ -47,7 +47,10 @@ function Viewpage() {
                 </S.TitleWrapper>
                 <br/>
                 <S.NameWrapper>
-                    {data && <S.Name>작성자 :  {data.body.data.username}</S.Name>}
+                    {data && <div>
+                        <S.Name>작성자 :  {data.body.data.username}</S.Name>
+                        <S.Date>{data.body.data.createdAt}</S.Date>
+                    </div>}
                 </S.NameWrapper>
                 <br/>
                 <S.ContentWrapper>
