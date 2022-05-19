@@ -1,11 +1,15 @@
 import api from '../lib/api';
-import { ReqSignIn, ReqSignUp, ResponseData, UserState } from '../types';
+import {
+  ReqSignIn,
+  ReqSignUp,
+  ResponseData,
+  ResponseToken,
+  UserState,
+} from '../types';
 
 export default class UserService {
-  public static async signIn(
-    reqData: ReqSignIn
-  ): Promise<ResponseData<UserState>> {
-    const response = await api.post('/auth/signin', reqData);
+  public static async signIn(reqData: ReqSignIn): Promise<ResponseToken> {
+    const response = await api.post('/auth/login', reqData);
     return response.data;
   }
 
