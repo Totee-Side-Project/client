@@ -1,6 +1,6 @@
 import { AxiosResponse } from 'axios';
 import api from '../lib/api';
-import { Posts, ResponseData, ReqPostDataType, Category, GetDataType } from '../types';
+import { Posts, ResponseData, ReqPostDataType, Category, Post } from '../types';
 
 export default class PostService {
   public static async getPosts(
@@ -20,12 +20,8 @@ export default class PostService {
     return response.data;
   }
 
-  public static async getPost(
-      postData: GetDataType,
-  ): Promise<ResponseData<Posts>> {
-    const response = await api.get(
-        `api/v1/post`
-    );
+  public static async getPost(postId: number): Promise<ResponseData<Post>> {
+    const response = await api.get(`api/v1/post/${postId}`);
     return response.data;
   }
 
@@ -35,13 +31,4 @@ export default class PostService {
     const response = await api.post('api/v1/post', postData);
     return response.data;
   }
-
-  // public static getPostData = async (getData: GetDataType) => {
-  //     return await axios.get(`${BASE_URL}/api/v1/post/3`, {
-  //             headers: {
-  //                 Authorization: `Bearer ${localStorage.getItem('access_token')}`,
-  //             }
-  //         }
-  //     );
-  // }
 }

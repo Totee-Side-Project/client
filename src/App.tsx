@@ -11,7 +11,6 @@ import PostPage from './pages/PostPage';
 import WritePage from './pages/WritePage';
 import NotFound from './pages/NotFound';
 import { applyToken, clearToken } from './lib/api';
-import { Footer } from './components/footer/style';
 
 function App() {
   const setUser = useSetRecoilState(userState);
@@ -20,11 +19,11 @@ function App() {
   useEffect(() => {
     (async () => {
       if (token) {
-        const response = await UserService.check(token);
-        if (response.header.code === 200) {
-          applyToken(token);
+        try {
+          const response = await UserService.check(token);
           setUser(response.body.data);
-        } else {
+          applyToken(token);
+        } catch (e) {
           clearToken();
           setUser(null);
           setToken(null);
