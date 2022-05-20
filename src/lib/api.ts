@@ -2,6 +2,7 @@ import axios from 'axios';
 
 const api = axios.create({
   baseURL: 'https://api.totee.link',
+  withCredentials: true,
 });
 
 export const applyToken = (token: string) => {

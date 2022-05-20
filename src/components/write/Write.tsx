@@ -1,10 +1,12 @@
 import { ChangeEvent, useState } from 'react';
 import { useMutation } from 'react-query';
+import { useNavigate } from 'react-router-dom';
 import PostService from '../../services/PostService';
 import Loading from '../loading/Loading';
 import * as S from './style';
 
 function Write() {
+  const navigate = useNavigate();
   const [loading, setLoading] = useState<boolean>(false);
 
   const [post, setPost] = useState({
@@ -14,7 +16,7 @@ function Write() {
   });
 
   const postOnChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement |HTMLSelectElement>
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
 
@@ -32,8 +34,12 @@ function Write() {
     onMutate: () => {
       setLoading(true);
     },
-    onSuccess: () => {
-      console.log('등록 완료 !');
+    onSuccess: (data) => {
+      if (data.header.code === 200) {
+        navigate('/', {
+          replace: true,
+        });
+      }
     },
     onSettled: () => {
       setLoading(false);
@@ -41,8 +47,6 @@ function Write() {
   });
 
   if (loading) return <Loading />;
-
-  console.log(post);
 
   return (
     <S.Base>
@@ -56,8 +60,12 @@ function Write() {
         />
         <S.Select
           name="categoryName"
-          onChange={postOnChange}>
-          <option value="" selected disabled hidden>선택</option>
+          value={post.categoryName}
+          onChange={postOnChange}
+        >
+          <option value="" disabled hidden>
+            선택
+          </option>
           <option value="스터디">스터디</option>
           <option value="멘토멘티">멘토멘티</option>
         </S.Select>

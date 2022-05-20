@@ -1,11 +1,7 @@
-import { useParams } from 'react-router-dom';
-import Viewpage from '../components/viewpage/viewpage';
+import Viewpage from '../components/viewpage/Viewpage';
 
 function PostPage() {
-
-  return (
-        <Viewpage/>
-)
+  return <Viewpage />;
 }
 
 export default PostPage;
