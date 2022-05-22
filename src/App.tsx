@@ -12,6 +12,7 @@ import WritePage from './pages/WritePage';
 import NotFound from './pages/NotFound';
 import { applyToken, clearToken } from './lib/api';
 import { Footer } from './components/footer/style';
+import PostUpdatePage from './pages/PostUpdatePage';
 
 function App() {
   const setUser = useSetRecoilState(userState);
@@ -39,6 +40,7 @@ function App() {
       <Routes>
         <Route path="post/:id" element={<PostPage />} />
         <Route path="write" element={<WritePage />} />
+        <Route path="update/:id" element={<PostUpdatePage />} />
         <Route path="signin" element={<SignInPage />} />
         <Route path="signup" element={<SignUpPage />} />
         <Route path="/" element={<MainPage />} />

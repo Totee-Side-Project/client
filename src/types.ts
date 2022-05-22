@@ -46,6 +46,7 @@ export interface ReqPostDataType {
 export interface GetDataType {
   title: string;
   content: string;
+  categoryName: string;
 }
 
 export type Category = '전체' | '스터디' | '멘토멘티';

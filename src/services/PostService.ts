@@ -1,6 +1,13 @@
-import { AxiosResponse } from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import api from '../lib/api';
-import { Posts, ResponseData, ReqPostDataType, Category, GetDataType } from '../types';
+import {
+  Posts,
+  ResponseData,
+  ReqPostDataType,
+  Category,
+  GetDataType,
+  Post,
+} from '../types';
 
 export default class PostService {
   public static async getPosts(
@@ -16,32 +23,50 @@ export default class PostService {
         `api/v1/post/list/${category}?page=${pageParam}`
       );
     }
-
     return response.data;
   }
 
   public static async getPost(
-      postData: GetDataType,
+    postData: GetDataType
   ): Promise<ResponseData<Posts>> {
-    const response = await api.get(
-        `api/v1/post`
-    );
+    const response = await api.get(`api/v1/post`);
     return response.data;
   }
 
   public static async addPost(
-    postData: ReqPostDataType
+    postData: ReqPostDataType | any
   ): Promise<ResponseData<void>> {
     const response = await api.post('api/v1/post', postData);
     return response.data;
   }
 
-  // public static getPostData = async (getData: GetDataType) => {
-  //     return await axios.get(`${BASE_URL}/api/v1/post/3`, {
-  //             headers: {
-  //                 Authorization: `Bearer ${localStorage.getItem('access_token')}`,
-  //             }
-  //         }
-  //     );
-  // }
+  public static deletePost = async (postData: GetDataType) => {
+    return (
+      await axios.delete(`api/v1/post`),
+      {
+        header: {
+          Authorization: `Bearer ${localStorage.getItem('access_token')}`,
+        },
+      }
+    );
+  };
+
+  public static updatePost = async (
+    postData: ReqPostDataType | any,
+    id: string
+  ): Promise<ResponseData<Post>> => {
+    const response = await axios.put(
+      `https://api.totee.link/api/v1/post/${id}`,
+      postData
+    );
+    return response.data;
+  };
+
+  public static addPostData = async (getData: GetDataType) => {
+    return await axios.post(`https://api.totee.link/api/v1/post`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('access_token')}`,
+      },
+    });
+  };
 }

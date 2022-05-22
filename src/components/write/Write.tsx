@@ -1,5 +1,6 @@
 import { ChangeEvent, useState } from 'react';
 import { useMutation } from 'react-query';
+import { Link } from 'react-router-dom';
 import PostService from '../../services/PostService';
 import Loading from '../loading/Loading';
 import * as S from './style';
@@ -14,7 +15,7 @@ function Write() {
   });
 
   const postOnChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement |HTMLSelectElement>
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
 
@@ -54,10 +55,10 @@ function Write() {
           onChange={postOnChange}
           placeholder="제목을 입력해주세요"
         />
-        <S.Select
-          name="categoryName"
-          onChange={postOnChange}>
-          <option value="" selected disabled hidden>선택</option>
+        <S.Select name="categoryName" onChange={postOnChange}>
+          <option value="" selected disabled hidden>
+            선택
+          </option>
           <option value="스터디">스터디</option>
           <option value="멘토멘티">멘토멘티</option>
         </S.Select>
@@ -68,7 +69,9 @@ function Write() {
           placeholder="내용을 입력해주세요"
         />
       </div>
-      <S.Button onClick={onSubmit}>등록</S.Button>
+      <S.Button onClick={onSubmit}>
+        <Link to="/">등록</Link>
+      </S.Button>
     </S.Base>
   );
 }
