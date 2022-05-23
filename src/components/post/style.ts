@@ -109,11 +109,6 @@ export const Image = styled.img`
   width: 100%;
 `;
 
-export const ContentBox = styled.div`
-  padding: 24px;
-  padding-top: 50px;
-`;
-
 export const InfoBox = styled.div`
   display: flex;
   justify-content: space-between;
@@ -121,6 +116,11 @@ export const InfoBox = styled.div`
   margin-top: 20px;
   padding-top: 14px;
   border-top: 1px solid #ccc;
+`;
+
+export const ContentBox = styled.div`
+  padding: 24px;
+  padding-top: 50px;
 `;
 
 export const IconBox = styled.div`
