@@ -7,7 +7,6 @@ import SignInPage from './pages/SignInPage';
 import SignUpPage from './pages/SignUpPage';
 import UserService from './services/UserService';
 import MainPage from './pages/MainPage';
-import PostPage from './pages/PostPage';
 import WritePage from './pages/WritePage';
 import NotFound from './pages/NotFound';
 import { applyToken, clearToken } from './lib/api';
@@ -38,7 +37,6 @@ function App() {
     <>
       <Header />
       <Routes>
-        <Route path="post/:id" element={<PostPage />} />
         <Route path="write" element={<WritePage />} />
         <Route path="signin" element={<SignInPage />} />
         <Route path="signup" element={<SignUpPage />} />
