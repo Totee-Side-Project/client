@@ -119,8 +119,8 @@ export const InfoBox = styled.div`
 `;
 
 export const ContentBox = styled.div`
-  height: calc(100% - 55px);
-  padding: 20px;
+  padding: 24px;
+  padding-top: 50px;
 `;
 
 export const IconBox = styled.div`
