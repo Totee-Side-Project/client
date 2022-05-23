@@ -11,6 +11,7 @@ import PostPage from './pages/PostPage';
 import WritePage from './pages/WritePage';
 import NotFound from './pages/NotFound';
 import { applyToken, clearToken } from './lib/api';
+import TokenService from './services/TokenService';
 
 function App() {
   const setUser = useSetRecoilState(userState);
@@ -27,6 +28,7 @@ function App() {
           clearToken();
           setUser(null);
           setToken(null);
+          TokenService.remove();
         }
       }
     })();

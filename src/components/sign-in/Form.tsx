@@ -27,7 +27,7 @@ function Form() {
         const token = data.body.token;
         TokenService.set(token);
         const user = await UserService.check(token);
-        setUser(user.body.data);
+        // setUser(user.body.data);
       }
     },
     onSettled: () => {
