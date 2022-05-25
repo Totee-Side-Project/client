@@ -26,10 +26,6 @@ function Write() {
     }));
   };
 
-  const onSubmit = () => {
-    mutation.mutate(post);
-  };
-
   const mutation = useMutation(PostService.addPost, {
     onMutate: () => {
       setLoading(true);
@@ -45,6 +41,10 @@ function Write() {
       setLoading(false);
     },
   });
+
+  const onSubmit = () => {
+    mutation.mutate(post);
+  };
 
   if (loading) return <Loading />;
 

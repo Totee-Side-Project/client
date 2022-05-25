@@ -1,7 +1,8 @@
 import { FormEvent, useState } from 'react';
 import { useMutation } from 'react-query';
+import { useNavigate } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
-import { userState } from '../../atoms';
+import { userState, userToken } from '../../atoms';
 import { ERROR_MESSAGE } from '../../constants/message';
 import useInput from '../../hooks/useInput';
 import TokenService from '../../services/TokenService';
@@ -11,23 +12,30 @@ import Loading from '../loading/Loading';
 import * as S from './style';
 
 function Form() {
+  const navigate = useNavigate();
   const [id, handleIdChange] = useInput('');
   const [password, handlePasswordChange] = useInput('');
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>('');
 
   const setUser = useSetRecoilState(userState);
+  const setToken = useSetRecoilState(userToken);
 
   const mutation = useMutation(UserService.signIn, {
     onMutate: () => {
       setLoading(true);
     },
     onSuccess: async (data) => {
-      if (data.header.code === 200) {
-        const token = data.body.token;
+      const token = data.body.token;
+
+      if (token) {
         TokenService.set(token);
+        setToken(token);
         const user = await UserService.check(token);
         setUser(user.body.data);
+        navigate('/', {
+          replace: true,
+        });
       }
     },
     onSettled: () => {
