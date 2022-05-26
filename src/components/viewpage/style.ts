@@ -29,6 +29,8 @@ export const Name = styled.div`
 export const Date = styled.div`
   padding-left: 15px;
   display: inline-block;
+  padding-right: 15px;
+  border-right: 2px solid #e1e1e1;
 `;
 
 export const Content = styled.div`
@@ -58,4 +60,24 @@ export const ContentWrapper = styled.div`
 
 export const iconWrapper = styled.div`
   //margin-top: 10px;
+`;
+
+export const BtnWrapper = styled.div`
+  display: inline-block;
+  margin-left: 15px;
+`;
+
+export const Button = styled.button`
+  display: inline-block;
+  margin-right: 10px;
+  cursor: pointer;
+  height: 30px;
+  padding: 1px 10px;
+  background-color: gray;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  :hover {
+    background-color: darkorange;
+  }
 `;

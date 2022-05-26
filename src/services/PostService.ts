@@ -1,4 +1,4 @@
-import { AxiosResponse } from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import api from '../lib/api';
 import { Posts, ResponseData, ReqPostDataType, Category, Post } from '../types';
 

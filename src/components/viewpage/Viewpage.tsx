@@ -1,6 +1,8 @@
+import axios from 'axios';
 import { useQuery } from 'react-query';
 import { Link, useParams } from 'react-router-dom';
 import PostService from '../../services/PostService';
+import { GetDataType } from '../../types';
 import Loading from '../loading/Loading';
 import * as S from './style';
 
@@ -13,6 +15,20 @@ function Viewpage() {
 
   if (isLoading) return <Loading />;
   if (isError) return <div>에러가 발생했습니다</div>;
+
+  const headers = {
+    Authorization: `Bearer ${localStorage.getItem('access_token')}`,
+  };
+
+  const deletePost = async (postData: GetDataType | any) => {
+    return await axios.delete(`https://api.totee.link/api/v1/post/${id}`, {
+      headers,
+    });
+  };
+
+  const updateOnClick = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {};
 
   return (
     <S.Base>
@@ -31,6 +47,14 @@ function Viewpage() {
             <div>
               <S.Name>작성자 : {data.body.data.username}</S.Name>
               <S.Date>{data.body.data.createdAt}</S.Date>
+              <S.BtnWrapper>
+                <S.Button onClick={deletePost}>
+                  <Link to="/">삭제</Link>
+                </S.Button>
+                <S.Button onClick={updateOnClick}>
+                  <Link to={`/update/${id}`}>수정</Link>
+                </S.Button>
+              </S.BtnWrapper>
             </div>
           )}
         </S.NameWrapper>
