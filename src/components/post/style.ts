@@ -5,11 +5,16 @@ export const Base = styled.section`
   max-width: 1200px;
   margin: auto;
   padding: 50px 30px;
+  background-color: #F8FFF6;
 `;
 
 export const Categories = styled.ul`
   display: flex;
   margin: 30px 0 60px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 20px;
+  padding : 25px;
+  background-color: #FFFFFF;
 `;
 
 export const Category = styled.li<{ isFocus: boolean }>`
@@ -18,10 +23,16 @@ export const Category = styled.li<{ isFocus: boolean }>`
   :not(:first-of-type) {
     margin-left: 20px;
   }
-  font-size: 28px;
+  font-size: 30px;
   cursor: pointer;
   transition: 0.3s;
-
+  @font-face {
+    font-family: 'yg-jalnan';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  font-family: 'yg-jalnan';
   :hover {
     transform: scale(1.1);
   }
@@ -80,12 +91,30 @@ export const Status = styled.span<{ isDone: boolean }>`
   border-radius: 20px;
   background-color: ${({ isDone }) => (isDone ? '#878787' : '#0ac858')};
   color: #fff;
-  font-size: 14px;
+  font-size: 16px;
+  position: relative;
+  bottom:120px;
+  left:230px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+  @font-face {
+    font-family: 'Happiness-Sans-Title';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/Happiness-Sans-Title.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
+  font-family: 'Happiness-Sans-Title';
 `;
 
 export const Title = styled.h3`
   font-weight: 600;
   margin-top: 2rem;
+  @font-face {
+    font-family: 'Happiness-Sans-Title';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/Happiness-Sans-Title.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
+  font-family: 'Happiness-Sans-Title';
 `;
 
 export const ImageWrapper = styled.div<{ isDone: boolean }>`
@@ -132,6 +161,13 @@ export const Info = styled.span<{ isBold?: boolean }>`
   display: flex;
   align-items: center;
   font-size: 16px;
+  @font-face {
+    font-family: 'Happiness-Sans-Title';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/Happiness-Sans-Title.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
+  font-family: 'Happiness-Sans-Title';
 
   > svg {
     margin-right: 4px;

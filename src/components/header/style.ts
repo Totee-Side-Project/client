@@ -51,9 +51,17 @@ export const StyledButton = styled.button`
 
 export const StyledLink = styled(Link)`
   margin-right: 10px;
-  padding: 0.25rem 1rem;
-  font-size: 14px;
+  padding: 0.25rem 0.75rem;
+  font-size: 20px;
   line-height: 24px;
+  font-weight: bold;
+  @font-face {
+    font-family: 'Happiness-Sans-Title';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/Happiness-Sans-Title.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
+  font-family: 'Happiness-Sans-Title';
 `;
 
 export const Space = styled.div`
