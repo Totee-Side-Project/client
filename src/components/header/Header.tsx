@@ -32,7 +32,7 @@ function Header() {
           <S.ButtonBox>
             <S.StyledLink to="write">새 글 쓰기</S.StyledLink>
             <S.StyledLink to="signin">로그인</S.StyledLink>
-            <S.StyledLink to="signup">회원 가입</S.StyledLink>
+            {/* <S.StyledLink to="signup">회원 가입</S.StyledLink> */}
           </S.ButtonBox>
         )}
       </S.Base>

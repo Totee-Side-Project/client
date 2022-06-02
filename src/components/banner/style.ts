@@ -4,6 +4,14 @@ export const Base = styled.section`
   padding: 30px 10px;
   background-color: #fff;
   text-align: center;
+
+  @font-face {
+    font-family: 'yg-jalnan';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  font-family: 'yg-jalnan';
 `;
 
 export const Content = styled.p`
@@ -11,7 +19,7 @@ export const Content = styled.p`
   align-items: center;
   justify-content: center;
   line-height: 2;
-  font-size: 24px;
+  font-size: 32px;
 
   :first-of-type {
     font-weight: 700;
