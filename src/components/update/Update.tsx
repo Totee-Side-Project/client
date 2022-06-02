@@ -1,8 +1,11 @@
 import axios from 'axios';
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
+import { useQuery } from 'react-query';
 import { Link, useNavigate, useParams } from 'react-router-dom';
+import api from '../../lib/api';
+import PostService from '../../services/PostService';
 import TokenService from '../../services/TokenService';
-import { GetDataType } from '../../types';
+import { GetDataType, Post, ResponseData } from '../../types';
 import * as S from './style';
 
 function Update() {
@@ -28,19 +31,27 @@ function Update() {
   ) => {
     const { name, value } = e.target;
 
-    setUpdate((prev) => ({
+    setPost((prev) => ({
       ...prev,
       [name]: value,
     }));
   };
 
+  useEffect(() => {
+    axios.get(`https://api.totee.link/api/v1/post/${id}`).then((response) => {
+      setPost(response.data.body.data);
+    });
+  }, []);
+
   const updatePost = async (postData: GetDataType | any) => {
-    return await axios.put(`https://api.totee.link/api/v1/post/${id}`, update, {
+    return await axios.put(`https://api.totee.link/api/v1/post/${id}`, post, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('access_token')}`,
       },
     });
   };
+
+  console.log(post);
 
   return (
     <S.Base>
@@ -48,11 +59,15 @@ function Update() {
         <S.Input
           type="text"
           name="title"
-          value={update.title}
+          value={post.title}
           onChange={postOnChange}
           placeholder="제목을 입력해주세요"
         />
-        <S.Select name="categoryName" onChange={postOnChange}>
+        <S.Select
+          value={post.categoryName}
+          name="categoryName"
+          onChange={postOnChange}
+        >
           <option value="" selected disabled hidden>
             선택
           </option>
@@ -68,13 +83,13 @@ function Update() {
         </S.Select>
         <S.textarea
           name="content"
-          value={update.content}
+          value={post.content}
           onChange={postOnChange}
           placeholder="내용을 입력해주세요"
         />
       </div>
       <S.Button onClick={updatePost}>
-        <Link to="/">수정</Link>
+        <Link to={`/post/${id}`}>수정</Link>
       </S.Button>
     </S.Base>
   );

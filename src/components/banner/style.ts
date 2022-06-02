@@ -3,11 +3,13 @@ import styled from '@emotion/styled';
 export const Base = styled.section`
   padding: 30px 10px;
   background-color: #fff;
+  color: #1f221f;
   text-align: center;
 
   @font-face {
     font-family: 'yg-jalnan';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff')
+      format('woff');
     font-weight: normal;
     font-style: normal;
   }

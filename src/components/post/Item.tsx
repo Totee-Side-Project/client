@@ -25,26 +25,30 @@ function Item({ post }: Props) {
             </S.ImageBox>
           </S.ImageWrapper>
           <S.ContentBox>
-            <S.Status isDone={post.status === 'N'}>
-              {post.status === 'Y' ? '모집중' : '모집완료'}
-            </S.Status>
-            <S.Title>{post.title}</S.Title>
-            <S.InfoBox>
-              <S.Info isBold>
-                {`[${post.major}]`} {post.username}
-              </S.Info>
-              <S.IconBox>
-                <S.Info>
-                  <FaRegCommentDots /> {post.commentCount}
+            <S.StatusWrapper>
+              <S.Status isDone={post.status === 'N'}>
+                {post.status === 'Y' ? '모집중' : '모집완료'}
+              </S.Status>
+            </S.StatusWrapper>
+            <div>
+              <S.Title>{post.title}</S.Title>
+              <S.InfoBox>
+                <S.Info isBold>
+                  {`[${post.major}]`} {post.username}
                 </S.Info>
-                <S.Info>
-                  <FaEye /> {post.view}
-                </S.Info>
-                <S.Info>
-                  <AiFillHeart /> {post.likeCount}
-                </S.Info>
-              </S.IconBox>
-            </S.InfoBox>
+                <S.IconBox>
+                  <S.Info>
+                    <FaRegCommentDots /> {post.commentCount}
+                  </S.Info>
+                  <S.Info>
+                    <FaEye /> {post.view}
+                  </S.Info>
+                  <S.Info>
+                    <AiFillHeart /> {post.likeCount}
+                  </S.Info>
+                </S.IconBox>
+              </S.InfoBox>
+            </div>
           </S.ContentBox>
         </S.Wrapper>
       </Link>

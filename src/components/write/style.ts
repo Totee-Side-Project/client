@@ -17,6 +17,7 @@ export const Input = styled.input`
   margin: 4% auto;
   width: 70%;
   height: 80px;
+  border-radius: 3px;
 
   &:focus {
     outline: none;
