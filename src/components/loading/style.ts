@@ -1,5 +1,5 @@
-import { keyframes } from "@emotion/react";
-import styled from "@emotion/styled";
+import { keyframes } from '@emotion/react';
+import styled from '@emotion/styled';
 
 const loadingSpinner = keyframes`
   from {
@@ -26,7 +26,7 @@ export const Base = styled.div`
     height: 20px;
     border-radius: 50%;
     border: 4px solid #eee;
-    border-top-color: #4f46e5;
+    border-top-color: #37ba51;
     animation: 1s ${loadingSpinner} linear infinite;
   }
 `;
