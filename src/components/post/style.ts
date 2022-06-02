@@ -5,7 +5,7 @@ export const Base = styled.section`
   max-width: 1200px;
   margin: auto;
   padding: 50px 30px;
-  background-color: #F8FFF6;
+  background-color: #f8fff6;
 `;
 
 export const Categories = styled.ul`
@@ -13,22 +13,23 @@ export const Categories = styled.ul`
   margin: 30px 0 60px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 20px;
-  padding : 25px;
-  background-color: #FFFFFF;
+  padding: 25px;
+  background-color: #ffffff;
 `;
 
 export const Category = styled.li<{ isFocus: boolean }>`
   display: flex;
   align-items: center;
   :not(:first-of-type) {
-    margin-left: 20px;
+    margin-left: 40px;
   }
-  font-size: 30px;
+  font-size: 25px;
   cursor: pointer;
   transition: 0.3s;
   @font-face {
     font-family: 'yg-jalnan';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff')
+      format('woff');
     font-weight: normal;
     font-style: normal;
   }
@@ -92,25 +93,37 @@ export const Status = styled.span<{ isDone: boolean }>`
   background-color: ${({ isDone }) => (isDone ? '#878787' : '#0ac858')};
   color: #fff;
   font-size: 16px;
-  position: relative;
-  bottom:120px;
-  left:230px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
   @font-face {
     font-family: 'Happiness-Sans-Title';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/Happiness-Sans-Title.woff2') format('woff2');
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/Happiness-Sans-Title.woff2')
+      format('woff2');
     font-weight: normal;
     font-style: normal;
   }
   font-family: 'Happiness-Sans-Title';
 `;
 
+export const StatusWrapper = styled.div`
+  height: fit-content;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+`;
+
 export const Title = styled.h3`
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
   font-weight: 600;
-  margin-top: 2rem;
+  line-height: 19px;
+  //margin-top: 2rem;
   @font-face {
     font-family: 'Happiness-Sans-Title';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/Happiness-Sans-Title.woff2') format('woff2');
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/Happiness-Sans-Title.woff2')
+      format('woff2');
     font-weight: normal;
     font-style: normal;
   }
@@ -150,6 +163,12 @@ export const InfoBox = styled.div`
 export const ContentBox = styled.div`
   padding: 24px;
   padding-top: 50px;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-between;
 `;
 
 export const IconBox = styled.div`
@@ -163,7 +182,8 @@ export const Info = styled.span<{ isBold?: boolean }>`
   font-size: 16px;
   @font-face {
     font-family: 'Happiness-Sans-Title';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/Happiness-Sans-Title.woff2') format('woff2');
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/Happiness-Sans-Title.woff2')
+      format('woff2');
     font-weight: normal;
     font-style: normal;
   }
