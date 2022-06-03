@@ -92,7 +92,7 @@ export interface Posts {
   totalElements: number;
   totalPages: number;
 }
-export interface ModalState {
+export interface ModalStateType {
   type: 'signIn' | 'signUp';
   isOpen: boolean;
   title: string;

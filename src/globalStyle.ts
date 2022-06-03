@@ -1,6 +1,9 @@
 import { css } from '@emotion/react';
 
 const globalStyle = css`
+  * {
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+  }
   html,
   body,
   div,
@@ -86,7 +89,7 @@ const globalStyle = css`
     padding: 0;
     border: 0;
     font-size: 100%;
-    font: inherit;
+    //font: inherit;
     vertical-align: baseline;
   }
   /* HTML5 display-role reset for older browsers */
@@ -105,7 +108,7 @@ const globalStyle = css`
   }
   body {
     line-height: 1;
-    background-color: #F8FFF6;
+    background-color: #f8fff6;
   }
   ol,
   ul {
