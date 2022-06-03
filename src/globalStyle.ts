@@ -105,7 +105,7 @@ const globalStyle = css`
   }
   body {
     line-height: 1;
-    background-color: #F8FFF6;
+    background-color: #FFF;
   }
   ol,
   ul {
