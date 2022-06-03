@@ -17,7 +17,7 @@ const ModalState = {
   type: 'signIn' as ModalStateType['type'],
   title: '',
   content: '',
-  page: 0,
+  page: 1,
 };
 export const modalState = atom<ModalStateType>({
   key: 'modalState',

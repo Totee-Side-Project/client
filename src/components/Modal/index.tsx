@@ -24,7 +24,7 @@ const Modal = () => {
   const [modal, setModal] = useRecoilState(modalState);
   return (
     <AnimatePresence>
-      {modal?.isOpen && modal.type && (
+      {modal.isOpen && (
         <ModalBackground
           variants={backgroundAnimation}
           initial={'initial'}

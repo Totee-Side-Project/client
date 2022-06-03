@@ -30,3 +30,12 @@ export const ModalInput = styled.input`
     border: 2px solid #568a35;
   }
 `;
+export const ModalButton = styled.button`
+  height: 45px;
+  width: 200px;
+  background: #568a35;
+  color: #fff;
+  border: 0 solid;
+  border-radius: 10px;
+  cursor: pointer;
+`;
