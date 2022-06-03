@@ -1,13 +1,21 @@
 import styled from '@emotion/styled';
 
 export const FooterContainer = styled.div`
-  background-color: #fff;
   padding: 3rem 0 0rem 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-shadow: 0px 10px 1px 10px #000;
+  background: linear-gradient(rgba(125, 125, 125, 0.1) 0%, rgba(148, 148, 148, 0) 12%), rgb(255, 255, 255);
+
+  @font-face {
+    font-family: 'Happiness-Sans-Title';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/Happiness-Sans-Title.woff2')
+      format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
+  font-family: 'Happiness-Sans-Title';
 `;
 
 export const FooterAbout = styled.div`

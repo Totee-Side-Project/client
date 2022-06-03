@@ -5,7 +5,7 @@ export const Base = styled.section`
   max-width: 1200px;
   margin: auto;
   padding: 50px 30px;
-  background-color: #f8fff6;
+  background-color: #fff;
 `;
 
 export const Categories = styled.ul`
