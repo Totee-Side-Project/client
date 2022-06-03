@@ -13,6 +13,7 @@ import { applyToken, clearToken } from './lib/api';
 import TokenService from './services/TokenService';
 import PostPage from './pages/PostPage';
 import UpdatePage from './pages/UpdatePage';
+import Modal from './components/Modal';
 
 function App() {
   const setUser = useSetRecoilState(userState);
@@ -37,11 +38,12 @@ function App() {
 
   return (
     <>
+      <Modal />
       <Header />
       <Routes>
         <Route path="post/:id" element={<PostPage />} />
         <Route path="write" element={<WritePage />} />
-        <Route path="update/:id" element={<UpdatePage/>}/>
+        <Route path="update/:id" element={<UpdatePage />} />
         <Route path="signin" element={<SignInPage />} />
         <Route path="signup" element={<SignUpPage />} />
         <Route path="/" element={<MainPage />} />
