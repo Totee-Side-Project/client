@@ -55,12 +55,6 @@ export const assetBlue = {
   blue500: '#42A5F5',
   blue600: '#2196F3',
 };
-export const googleLogoColor = {
-  googleBlue: '#4285F4',
-  googleRed: '#EA4335',
-  googleYellow: '#FBBC04',
-  googleGreen: '#34A853',
-};
 export const primaryColor = {
   ...assetGrey,
   ...assetGreen,
@@ -68,7 +62,6 @@ export const primaryColor = {
   ...assetRed,
   ...assetBlue,
   ...assetOrange,
-  ...googleLogoColor,
 };
 
 export const colors = { ...primaryColor };
