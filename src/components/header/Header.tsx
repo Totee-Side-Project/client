@@ -4,6 +4,8 @@ import { userState, userToken } from '../../atoms';
 import { clearToken } from '../../lib/api';
 import TokenService from '../../services/TokenService';
 import * as S from './style';
+import { StyledProfileImage } from './style';
+import MockProfileImage from '../../Mocks/Ellipse.jpg';
 
 function Header() {
   const [user, setUser] = useRecoilState(userState);
@@ -20,13 +22,16 @@ function Header() {
     <>
       <S.Base>
         <S.Title>
-          <Link to="/"><img src='/toteelogo2.png'/></Link>
+          <Link to="/">
+            <img src="/toteelogo2.png" />
+          </Link>
         </S.Title>
         {user ? (
           <S.ButtonBox>
             <S.StyledLink to="write">새 글 쓰기</S.StyledLink>
+            <StyledProfileImage src={MockProfileImage} />
             <span>{user.username}</span>
-            <S.StyledButton onClick={handleLogOut}>로그아웃</S.StyledButton>
+            {/*<S.StyledButton onClick={handleLogOut}>로그아웃</S.StyledButton>*/}
           </S.ButtonBox>
         ) : (
           <S.ButtonBox>

@@ -1,10 +1,9 @@
 import { colors } from './colors';
 import { windowSize } from './windowSize';
 import { fontSize } from './fontSize';
-import {myType} from "./declare";
+import { Theme } from '@emotion/react';
 
-
-export const theme: myType = {
+export const theme: Theme = {
   colors: colors,
   windowSize: windowSize,
   fontSize: fontSize,
