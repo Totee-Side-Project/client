@@ -18,6 +18,7 @@ export const assetGreen = {
   green400: '#81C784',
   green500: '#66BB6A',
   green600: '#4CAF50',
+  tottee: '#568a35',
 };
 export const assetYellow = {
   yellow100: '#FFF8E1',
@@ -34,7 +35,6 @@ export const assetRed = {
   red400: '#E57373',
   red500: '#EF5350',
   red600: '#F44336',
-  tossRed: '#f44336',
 };
 export const assetOrange = {
   orange100: '#FFF3E0',
