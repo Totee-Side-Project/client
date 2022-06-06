@@ -4,8 +4,8 @@ import { userState, userToken } from '../../atoms';
 import { clearToken } from '../../lib/api';
 import TokenService from '../../services/TokenService';
 import * as S from './style';
-import { StyledProfileImage } from './style';
 import MockProfileImage from '../../Mocks/Ellipse.jpg';
+import { ProfileWrapper } from './style';
 
 function Header() {
   const [user, setUser] = useRecoilState(userState);
@@ -17,6 +17,10 @@ function Header() {
     TokenService.remove();
     clearToken();
   };
+  const mock = {
+    profileImage: MockProfileImage,
+    nickname: 'Jason',
+  };
 
   return (
     <>
@@ -26,11 +30,13 @@ function Header() {
             <img src="/toteelogo2.png" />
           </Link>
         </S.Title>
-        {user ? (
+        {mock ? (
           <S.ButtonBox>
             <S.StyledLink to="write">새 글 쓰기</S.StyledLink>
-            <StyledProfileImage src={MockProfileImage} />
-            <span>{user.username}</span>
+            <S.ProfileWrapper>
+              <S.StyledProfileImage src={MockProfileImage} />
+              <S.StyledUsername>{mock.nickname}</S.StyledUsername>
+            </S.ProfileWrapper>
             {/*<S.StyledButton onClick={handleLogOut}>로그아웃</S.StyledButton>*/}
           </S.ButtonBox>
         ) : (
