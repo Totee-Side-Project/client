@@ -34,6 +34,7 @@ export const ButtonBox = styled.div`
   display: flex;
   align-items: center;
   margin-left: auto;
+  position: relative;
 
   > span {
     margin-right: 10px;
@@ -62,9 +63,12 @@ export const Space = styled.div`
   height: 100px;
 `;
 export const ProfileWrapper = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  width: 150px;
+  justify-content: center;
   gap: 10px;
   cursor: pointer;
   padding: 10px 20px;
@@ -81,6 +85,6 @@ export const StyledProfileImage = styled.img`
 `;
 export const StyledUsername = styled.p`
   color: ${({ theme }) => theme.colors.grey900};
-  font-size: ${({ theme }) => theme.fontSize.body2};
+  font-size: ${({ theme }) => theme.fontSize.body3};
   font-weight: bold;
 `;
