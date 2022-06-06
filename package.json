@@ -19,6 +19,7 @@
     "@types/react": "^17.0.43",
     "@types/react-dom": "^17.0.14",
     "axios": "^0.26.1",
+    "framer-motion": "^6.3.10",
     "install": "^0.13.0",
     "npm": "^8.12.1",
     "react": "^17.0.2",
@@ -60,6 +61,7 @@
   },
   "devDependencies": {
     "@types/react-infinite-scroller": "^1.2.3",
+    "@types/styled-components": "^5.1.25",
     "prettier": "2.6.2"
   }
 }

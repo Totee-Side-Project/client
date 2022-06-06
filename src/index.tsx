@@ -7,7 +7,7 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import { RecoilRoot } from 'recoil';
 import { Global } from '@emotion/react';
-import globalStyle from './globalStyle';
+import globalStyle from './styles/globalStyle';
 
 const queryClient = new QueryClient();
 
