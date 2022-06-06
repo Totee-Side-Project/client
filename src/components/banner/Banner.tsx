@@ -8,7 +8,7 @@ function Banner() {
         <img src="/toteelogo2.png" alt="토티" width=""/>
         에서 함께 할 멘토&amp;멘티를 찾아보세요!
       </S.Content>
-      <img src="/banner.png" alt="사이좋은 사람들" width="700" height="400" />
+      <img src="/banner.png" alt="사이좋은 사람들" width="620" height="350" />
     </S.Base>
   );
 }

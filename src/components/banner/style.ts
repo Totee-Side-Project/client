@@ -21,7 +21,7 @@ export const Content = styled.p`
   align-items: center;
   justify-content: center;
   line-height: 2;
-  font-size: 32px;
+  font-size: 26px;
 
   :first-of-type {
     font-weight: 700;
