@@ -1,3 +1,4 @@
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 
@@ -67,4 +68,11 @@ export const StyledLink = styled(Link)`
 
 export const Space = styled.div`
   height: 100px;
+`;
+export const StyledProfileImage = styled.img`
+  width: 40px;
+  height: 40px;
+`;
+export const StyledUsername = styled.p`
+  color: ${({ theme }) => theme.colors.grey900};
 `;
