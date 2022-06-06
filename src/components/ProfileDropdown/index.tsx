@@ -57,8 +57,8 @@ const ProfileDropdown: React.FC<{
           exit={{ opacity: 0 }}
         >
           <UserInfoWrapper>
-            <Username>Jason</Username>
-            <UserInfoText>jhjeong00@gmail.com</UserInfoText>
+            <Username>{userInfo.nickname}</Username>
+            <UserInfoText>{userInfo.email}</UserInfoText>
           </UserInfoWrapper>
           <MenuElement
             layout

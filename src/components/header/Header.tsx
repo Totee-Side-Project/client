@@ -18,11 +18,6 @@ function Header() {
     TokenService.remove();
     clearToken();
   };
-  const mock = {
-    profileImage: MockProfileImage,
-    nickname: 'Jason',
-  };
-
   return (
     <>
       <S.Base>
@@ -31,12 +26,12 @@ function Header() {
             <img src="/toteelogo2.png" />
           </Link>
         </S.Title>
-        {mock ? (
+        {user ? (
           <S.ButtonBox>
             <S.StyledLink to="write">새 글 쓰기</S.StyledLink>
             <S.ProfileWrapper onClick={() => setDropdown(!dropdown)}>
               <S.StyledProfileImage src={MockProfileImage} />
-              <S.StyledUsername>{mock.nickname}</S.StyledUsername>
+              <S.StyledUsername>{user.nickname}</S.StyledUsername>
             </S.ProfileWrapper>
             {user && (
               <ProfileDropdown
