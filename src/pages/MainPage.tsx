@@ -1,18 +1,12 @@
 import Banner from '../components/banner/Banner';
 import Footer from '../components/footer/Footer';
 import List from '../components/post/List';
-import { useRecoilState } from 'recoil';
-import { modalState } from '../atoms';
+import Socical from '../components/social/social';
 
 function MainPage() {
-  const [modal, setModal] = useRecoilState(modalState);
   return (
     <>
-      <button
-        onClick={() => setModal({ ...modal, isOpen: true, type: 'signUp' })}
-      >
-        asd
-      </button>
+      <Socical />
       <Banner />
       <List />
       <Footer />

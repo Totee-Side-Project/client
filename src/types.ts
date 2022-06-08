@@ -5,7 +5,7 @@ export interface ReqSignIn {
 
 export interface ReqSignUp extends ReqSignIn {
   email: string;
-  username: string;
+  nickname: string;
   major: string;
   phone: string;
   studentId: string;

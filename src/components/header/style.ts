@@ -1,3 +1,4 @@
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 
@@ -33,6 +34,7 @@ export const ButtonBox = styled.div`
   display: flex;
   align-items: center;
   margin-left: auto;
+  position: relative;
 
   > span {
     margin-right: 10px;
@@ -50,21 +52,39 @@ export const StyledButton = styled.button`
 `;
 
 export const StyledLink = styled(Link)`
+  padding: 0 10px;
   margin-right: 10px;
-  padding: 0.25rem 0.75rem;
-  font-size: 20px;
-  line-height: 24px;
+  color: ${({ theme }) => theme.colors.grey900};
+  font-size: ${({ theme }) => theme.fontSize.body2};
   font-weight: bold;
-  @font-face {
-    font-family: 'Happiness-Sans-Title';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/Happiness-Sans-Title.woff2')
-      format('woff2');
-    font-weight: normal;
-    font-style: normal;
-  }
-  font-family: 'Happiness-Sans-Title';
 `;
 
 export const Space = styled.div`
   height: 100px;
+`;
+export const ProfileWrapper = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 150px;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease-in-out;
+  border-radius: 10px;
+  &:hover {
+    background: ${({ theme }) => theme.colors.grey200};
+  }
+`;
+export const StyledProfileImage = styled.img`
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+`;
+export const StyledUsername = styled.p`
+  color: ${({ theme }) => theme.colors.grey900};
+  font-size: ${({ theme }) => theme.fontSize.body3};
+  font-weight: bold;
 `;
