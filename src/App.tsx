@@ -45,6 +45,7 @@ function App() {
         <Route path="signin" element={<SignInPage />} />
         <Route path="signup" element={<SignUpPage />} />
         <Route path="/" element={<MainPage />} />
+        <Route path="/oauth2/redirect" element={<MainPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
