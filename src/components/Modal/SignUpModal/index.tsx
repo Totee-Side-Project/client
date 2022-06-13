@@ -14,7 +14,7 @@ import { modalState } from '../../../atoms';
 import { Link } from 'react-router-dom';
 
 export const API_BASE_URL = 'https://api.totee.link';
-export const OAUTH2_REDIRECT_URI = 'https://totee.site/oauth/redirect';
+export const OAUTH2_REDIRECT_URI = 'https://totee.site';
 export const GOOGLE_AUTH_URL =
   API_BASE_URL +
   '/oauth2/authorization/google?redirect_uri=' +
