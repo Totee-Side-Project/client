@@ -92,3 +92,10 @@ export interface Posts {
   totalElements: number;
   totalPages: number;
 }
+export interface ModalStateType {
+  type: 'signIn' | 'signUp';
+  isOpen: boolean;
+  title: string;
+  content: string;
+  page: number;
+}

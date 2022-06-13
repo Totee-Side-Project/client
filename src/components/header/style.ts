@@ -88,3 +88,14 @@ export const StyledUsername = styled.p`
   font-size: ${({ theme }) => theme.fontSize.body3};
   font-weight: bold;
 `;
+export const LoginButton = styled.button`
+  padding: 0 10px;
+  margin-right: 10px;
+  color: ${({ theme }) => theme.colors.grey900};
+  font-size: ${({ theme }) => theme.fontSize.body2};
+  font-weight: bold;
+  background-color: white;
+  border-color: white;
+  border: 0px;
+  cursor: pointer;
+`;

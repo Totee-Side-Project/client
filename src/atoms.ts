@@ -1,13 +1,25 @@
-import { atom } from "recoil";
-import TokenService from "./services/TokenService";
-import { UserState } from "./types";
+import { atom } from 'recoil';
+import TokenService from './services/TokenService';
+import { ModalStateType, UserState } from './types';
 
 export const userState = atom<UserState | null>({
-  key: "userState",
+  key: 'userState',
   default: null,
 });
 
 export const userToken = atom<string | null>({
-  key: "token",
+  key: 'token',
   default: TokenService.get(),
+});
+
+const ModalState = {
+  isOpen: false,
+  type: 'signIn' as ModalStateType['type'],
+  title: '',
+  content: '',
+  page: 1,
+};
+export const modalState = atom<ModalStateType>({
+  key: 'modalState',
+  default: ModalState,
 });

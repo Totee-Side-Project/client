@@ -35,7 +35,7 @@ function Viewpage() {
       <div>
         <S.iconWrapper>
           <Link to="/">
-            <img src="/backicon.png" alt="뒤로 가기 이미지" />
+            <img src="/backicon.svg" alt="뒤로 가기 이미지" />
           </Link>
         </S.iconWrapper>
         <S.TitleWrapper>
