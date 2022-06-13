@@ -1,12 +1,16 @@
 import styled from '@emotion/styled';
 
 export const FooterContainer = styled.div`
-  padding: 3rem 0 0rem 0;
+  padding: 4rem 0 1rem 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(rgba(125, 125, 125, 0.1) 0%, rgba(148, 148, 148, 0) 12%), rgb(255, 255, 255);
+  background: linear-gradient(
+      rgba(125, 125, 125, 0.1) 0%,
+      rgba(148, 148, 148, 0) 12%
+    ),
+    rgb(255, 255, 255);
 
   @font-face {
     font-family: 'Happiness-Sans-Title';
@@ -21,9 +25,9 @@ export const FooterContainer = styled.div`
 export const FooterAbout = styled.div`
   padding: 0 4rem 0 0;
 
-  > p{
-    line-height : 150%;
-    color: #6F6C90;
+  > p {
+    line-height: 150%;
+    color: #6f6c90;
   }
 `;
 
@@ -42,7 +46,7 @@ export const FooterEmail = styled.div`
   align-items: center;
   margin-top: -16px;
 
-  > a{
+  > a {
     padding: 1rem 0 0 0;
   }
 `;
@@ -59,10 +63,9 @@ export const FooterSubcription = styled.section`
   font-weight: bold;
 
   > p {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode',
-     'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+      'Lucida Sans', Arial, sans-serif;
   }
-
 `;
 
 export const FooterSubcriptionHeading = styled.p`
@@ -108,14 +111,14 @@ export const FooterLinkItems = styled.div`
     margin-bottom: 30px;
   }
 
-  > h2{
-    color: #170F49;
+  > h2 {
+    color: #170f49;
     font-size: 24px;
-    font-weight : bold;
+    font-weight: bold;
   }
 
   a {
-    color: #6F6C90;
+    color: #6f6c90;
     text-decoration: none;
     margin-bottom: 15px;
   }
@@ -129,7 +132,7 @@ export const FooterEmailForm = styled.h2`
   margin-bottom: 32px;
 `;
 export const SocialIconLink = styled.div`
-  color :#363636;
+  color: #363636;
   font-size: 24px;
 `;
 
@@ -139,7 +142,7 @@ export const SocialMediaWrap = styled.div`
   align-items: center;
   width: 90%;
   max-width: 1000px;
-  margin:40px auto 0 auto;
+  margin: 40px auto 0 auto;
 `;
 
 export const SocialIcons = styled.div`
@@ -150,8 +153,8 @@ export const SocialIcons = styled.div`
 `;
 
 export const SocialLogo = styled.div`
-  color:#363636;
-  justify-self:start;
+  color: #363636;
+  justify-self: start;
   margin-left: 20px;
   cursor: pointer;
   text-decoration: none;
@@ -161,7 +164,7 @@ export const SocialLogo = styled.div`
 `;
 
 export const WebsiteRight = styled.div`
-  color:#363636;
+  color: #363636;
   margin-bottom: 16px;
 `;
 
@@ -170,6 +173,6 @@ export const SocialMedia = styled.section`
   width: 100%;
 
   hr {
-    background-color:#D9DBE9;
+    background-color: #d9dbe9;
   }
 `;
