@@ -32,11 +32,11 @@ const Page1 = () => {
       <div>
         <GoogleLoginButton>
           <Img src="googlelogo.svg" />
-          <Link to={GOOGLE_AUTH_URL}>구글 로그인</Link>
+          <a href={GOOGLE_AUTH_URL}>구글 로그인</a>
         </GoogleLoginButton>
         <KakoLoginButton>
           <Img src="kakaologo.svg" />
-          <Link to={KAKAO_AUTH_URL}>카카오 로그인</Link>
+          <a href={KAKAO_AUTH_URL}>카카오 로그인</a>
         </KakoLoginButton>
       </div>
     </>
