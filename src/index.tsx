@@ -7,7 +7,9 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import { RecoilRoot } from 'recoil';
 import { Global } from '@emotion/react';
-import globalStyle from './globalStyle';
+import { ThemeProvider } from '@emotion/react';
+import globalStyle from './styles/globalStyle';
+import { theme } from './styles/theme';
 
 const queryClient = new QueryClient();
 
@@ -16,8 +18,10 @@ ReactDOM.render(
     <RecoilRoot>
       <QueryClientProvider client={queryClient}>
         <BrowserRouter>
-          <Global styles={globalStyle} />
-          <App />
+          <ThemeProvider theme={theme}>
+            <Global styles={globalStyle} />
+            <App />
+          </ThemeProvider>
         </BrowserRouter>
         <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>

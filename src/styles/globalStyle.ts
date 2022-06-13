@@ -86,7 +86,6 @@ const globalStyle = css`
     padding: 0;
     border: 0;
     font-size: 100%;
-    font: inherit;
     vertical-align: baseline;
   }
   /* HTML5 display-role reset for older browsers */
@@ -105,7 +104,7 @@ const globalStyle = css`
   }
   body {
     line-height: 1;
-    background-color: #FFF;
+    background-color: #fff;
   }
   ol,
   ul {
@@ -128,6 +127,11 @@ const globalStyle = css`
   }
   * {
     box-sizing: border-box;
+    font-family: 'Spoqa Han Sans Neo', 'Spoqa Han Sans JP', sans-serif;
+    font-style: normal;
+    margin: 0;
+    word-break: keep-all;
+    -webkit-tap-highlight-color: transparent;
   }
   a {
     text-decoration: none;

@@ -18,14 +18,14 @@ const initialForm: ReqSignUp = {
   password: '',
   phone: '',
   studentId: '',
-  username: '',
+  nickname: '',
 };
 
 function Form() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState<boolean>(false);
   const [userInfo, setUserInfo] = useState<ReqSignUp>(initialForm);
-  const { id, email, gender, major, password, phone, studentId, username } =
+  const { id, email, gender, major, password, phone, studentId, nickname } =
     userInfo;
   const [passwordConfirm, handlePasswordConfirmChange] = useInput('');
   const [error, setError] = useState<string>('');
@@ -88,7 +88,7 @@ function Form() {
     mutation.mutate({
       id,
       email,
-      username,
+      nickname,
       password,
       major,
       phone,
@@ -123,7 +123,7 @@ function Form() {
           type="text"
           id="username"
           name="username"
-          value={username}
+          value={nickname}
           onChange={handleUserInfoChange}
         />
         <S.Label htmlFor="pw">비밀번호</S.Label>
