@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useRecoilState, useSetRecoilState } from 'recoil';
-import { userState, userToken } from '../../atoms';
+import { modalState, userState, userToken } from '../../atoms';
 import { clearToken } from '../../lib/api';
 import TokenService from '../../services/TokenService';
 import * as S from './style';
@@ -9,6 +9,7 @@ import ProfileDropdown from '../ProfileDropdown';
 import { useState } from 'react';
 
 function Header() {
+  const [modal, setModal] = useRecoilState(modalState);
   const [user, setUser] = useRecoilState(userState);
   const setToken = useSetRecoilState(userToken);
   const [dropdown, setDropdown] = useState(false);
@@ -45,8 +46,22 @@ function Header() {
           </S.ButtonBox>
         ) : (
           <S.ButtonBox>
-            <S.StyledLink to="write">새 글 쓰기</S.StyledLink>
-            <S.StyledLink to="signin">로그인</S.StyledLink>
+            {/*<S.StyledLink to="write">새 글 쓰기</S.StyledLink>*/}
+            <S.LoginButton
+              onClick={() =>
+                setModal({ ...modal, isOpen: true, type: 'signUp' })
+              }
+            >
+              새 글 쓰기
+            </S.LoginButton>
+            <S.LoginButton
+              onClick={() =>
+                setModal({ ...modal, isOpen: true, type: 'signUp' })
+              }
+            >
+              로그인
+            </S.LoginButton>
+            {/*<S.StyledLink to="signin">로그인</S.StyledLink>*/}
             {/* <S.StyledLink to="signup">회원 가입</S.StyledLink> */}
           </S.ButtonBox>
         )}

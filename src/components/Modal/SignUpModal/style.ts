@@ -39,3 +39,37 @@ export const ModalButton = styled.button`
   border-radius: 10px;
   cursor: pointer;
 `;
+export const GoogleLoginButton = styled.button`
+  height: 45px;
+  width: 170px;
+  background: white;
+  border: 1px solid;
+  border-color: #d3d3d3;
+  border-radius: 10px;
+  cursor: pointer;
+  display: inline-block;
+  margin: 0px 15px;
+  :hover {
+    background-color: whitesmoke;
+    border-color: #fff;
+  }
+`;
+export const KakoLoginButton = styled.button`
+  height: 45px;
+  width: 170px;
+  background: #fee500;
+  border: 1px solid;
+  border-color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  display: inline-block;
+  margin: 0px 15px;
+  :hover {
+    background-color: #faf092;
+    border-color: #faf092;
+  }
+`;
+
+export const Img = styled.img`
+  margin: -5px 10px -7px 0px;
+`;
