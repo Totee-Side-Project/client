@@ -1,18 +1,17 @@
 import React from 'react';
 import {
-  Img,
-  GoogleLoginButton,
-  KakoLoginButton,
-  ModalButton,
-  ModalContent,
-  ModalTitle,
-  ModalWrapper,
-  SocialText,
+    GoogleLoginButton,
+    KakoLoginButton,
+    ModalContent,
+    ModalTitle,
+    ModalWrapper,
+    SocialButtonWrapper,
+    SocialText,
 } from './style';
-import { modalAnimation } from '../../Variants/variants';
-import { useRecoilState } from 'recoil';
-import { modalState } from '../../../atoms';
-import { Link, useNavigate } from 'react-router-dom';
+import {modalAnimation} from '../../Variants/variants';
+import {useRecoilState} from 'recoil';
+import {modalState} from '../../../atoms';
+import {useNavigate} from 'react-router-dom';
 
 export const API_BASE_URL = 'https://api.totee.link';
 export const OAUTH2_REDIRECT_URI = 'https://totee.site';
@@ -31,16 +30,16 @@ const Page1 = () => {
     <>
       <ModalTitle>토티에 오신 것을 환영합니다!</ModalTitle>
       <ModalContent>소셜아이디로 쉽게 로그인 해보세요!</ModalContent>
-      <div>
+      <SocialButtonWrapper>
         <GoogleLoginButton onClick={() => window.open(GOOGLE_AUTH_URL, '_blank')}>
-          <Img src="googlelogo.svg" />
+          <img src="googlelogo.svg" />
           <SocialText>구글 로그인</SocialText>
         </GoogleLoginButton>
         <KakoLoginButton onClick={() => navigate(KAKAO_AUTH_URL)}>
-          <Img src="kakaologo.svg" />
+          <img src="kakaologo.svg" />
           <SocialText>카카오 로그인</SocialText>
         </KakoLoginButton>
-      </div>
+      </SocialButtonWrapper>
     </>
   );
 };

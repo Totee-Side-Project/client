@@ -39,43 +39,43 @@ export const ModalButton = styled.button`
   border-radius: 10px;
   cursor: pointer;
 `;
+export const SocialButtonWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+`;
 export const GoogleLoginButton = styled.button`
   display: flex;
   flex-direction: row;
   height: 45px;
   width: 170px;
   background: white;
-  border: 1px solid;
-  border-color: #d3d3d3;
+  border: 1px solid #d3d3d3;
   border-radius: 10px;
   cursor: pointer;
-  display: inline-block;
-  margin: 0px 15px;
+  margin: 0 15px;
+  align-items: center;
+  padding: 0 20px;
+  justify-content: center;
   :hover {
     background-color: whitesmoke;
     border-color: #fff;
   }
 `;
-export const KakoLoginButton = styled.button`
+export const KakoLoginButton = styled(GoogleLoginButton)`
   height: 45px;
   width: 170px;
   background: #fee500;
-  border: 1px solid;
-  border-color: white;
-  border-radius: 10px;
-  cursor: pointer;
-  display: inline-block;
-  margin: 0px 15px;
+  border: 1px solid #fff;
   :hover {
     background-color: #faf092;
     border-color: #faf092;
   }
 `;
 
-export const Img = styled.img`
-  margin: -5px 10px -7px 0px;
-`;
+
 
 export const SocialText = styled.div`
-  width: fit-content;
+  width: 100%;
 `;
