@@ -14,6 +14,7 @@ import TokenService from './services/TokenService';
 import PostPage from './pages/PostPage';
 import UpdatePage from './pages/UpdatePage';
 import Modal from './components/Modal';
+import OauthRedirectPage from './pages/OauthRedirectPage';
 
 function App() {
   const setUser = useSetRecoilState(userState);
@@ -46,6 +47,7 @@ function App() {
         <Route path="update/:id" element={<UpdatePage />} />
         <Route path="signin" element={<SignInPage />} />
         <Route path="signup" element={<SignUpPage />} />
+        <Route path="oauth/redirect" element={<OauthRedirectPage />} />
         <Route path="/" element={<MainPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
