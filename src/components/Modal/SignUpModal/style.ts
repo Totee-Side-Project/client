@@ -40,6 +40,8 @@ export const ModalButton = styled.button`
   cursor: pointer;
 `;
 export const GoogleLoginButton = styled.button`
+  display: flex;
+  flex-direction: row;
   height: 45px;
   width: 170px;
   background: white;
@@ -72,4 +74,8 @@ export const KakoLoginButton = styled.button`
 
 export const Img = styled.img`
   margin: -5px 10px -7px 0px;
+`;
+
+export const SocialText = styled.div`
+  width: fit-content;
 `;

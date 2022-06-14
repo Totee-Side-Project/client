@@ -7,11 +7,12 @@ import {
   ModalContent,
   ModalTitle,
   ModalWrapper,
+  SocialText,
 } from './style';
 import { modalAnimation } from '../../Variants/variants';
 import { useRecoilState } from 'recoil';
 import { modalState } from '../../../atoms';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export const API_BASE_URL = 'https://api.totee.link';
 export const OAUTH2_REDIRECT_URI = 'https://totee.site/oauth/redirect';
@@ -25,18 +26,19 @@ export const KAKAO_AUTH_URL =
   OAUTH2_REDIRECT_URI;
 
 const Page1 = () => {
+  const navigate = useNavigate();
   return (
     <>
       <ModalTitle>토티에 오신 것을 환영합니다!</ModalTitle>
       <ModalContent>소셜아이디로 쉽게 로그인 해보세요!</ModalContent>
       <div>
-        <GoogleLoginButton>
+        <GoogleLoginButton onClick={() => window.open(GOOGLE_AUTH_URL, '_blank')}>
           <Img src="googlelogo.svg" />
-          <a href={GOOGLE_AUTH_URL}>구글 로그인</a>
+          <SocialText>구글 로그인</SocialText>
         </GoogleLoginButton>
-        <KakoLoginButton>
+        <KakoLoginButton onClick={() => navigate(KAKAO_AUTH_URL)}>
           <Img src="kakaologo.svg" />
-          <a href={KAKAO_AUTH_URL}>카카오 로그인</a>
+          <SocialText>카카오 로그인</SocialText>
         </KakoLoginButton>
       </div>
     </>
