@@ -44,9 +44,10 @@ const Modal = () => {
             )}
             {modal.type === 'addInfo' && (
               <OutsideClickHandler
-                outsideClick={() => setModal({ ...modal, isOpen: false })}
+                outsideClick={() => setModal({ ...modal, isOpen: true })}
               >
                 <AddInfoModal />
+                <button onClick={() => setModal({ ...modal, isOpen: false })}>닫기</button>
               </OutsideClickHandler>
             )}
           {/*</OutsideClickHandler>*/}
