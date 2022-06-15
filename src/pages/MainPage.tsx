@@ -11,7 +11,8 @@ function MainPage() {
   const [modal, setModal] = useRecoilState(modalState);
 
   useEffect(() => {
-    if (!user) {
+    if (user && !user.nickname) {
+      alert('dd');
       // <AddInfoModal/>
     }
   }, [user]);
