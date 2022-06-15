@@ -32,12 +32,24 @@ const Modal = () => {
           animate={'animate'}
           exit={'end'}
         >
-          <OutsideClickHandler
-            outsideClick={() => setModal({ ...modal, isOpen: false })}
-          >
-            {modal.type === 'signUp' && <SignUpModal />}
-            {modal.type === 'addInfo' && <AddInfoModal />}
-          </OutsideClickHandler>
+          {/*<OutsideClickHandler*/}
+          {/*  outsideClick={() => setModal({ ...modal, isOpen: false })}*/}
+          {/*>*/}
+            {modal.type === 'signUp' && (
+              <OutsideClickHandler
+                outsideClick={() => setModal({ ...modal, isOpen: false })}
+              >
+                <SignUpModal />
+              </OutsideClickHandler>
+            )}
+            {modal.type === 'addInfo' && (
+              <OutsideClickHandler
+                outsideClick={() => setModal({ ...modal, isOpen: false })}
+              >
+                <AddInfoModal />
+              </OutsideClickHandler>
+            )}
+          {/*</OutsideClickHandler>*/}
         </ModalBackground>
       )}
     </AnimatePresence>
