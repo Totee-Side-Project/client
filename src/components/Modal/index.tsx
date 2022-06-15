@@ -6,6 +6,7 @@ import SignUpModal from './SignUpModal';
 import OutsideClickHandler from '../../Utils/OutsideClickHandler';
 import { backgroundAnimation } from '../Variants/variants';
 import { AnimatePresence, motion } from 'framer-motion';
+import AddInfoModal from './AddInfoModal';
 
 const ModalBackground = styled(motion.div)`
   position: fixed;
@@ -34,7 +35,8 @@ const Modal = () => {
           <OutsideClickHandler
             outsideClick={() => setModal({ ...modal, isOpen: false })}
           >
-            <SignUpModal />
+            {modal.type === 'signUp' && <SignUpModal />}
+            {modal.type === 'addInfo' && <AddInfoModal />}
           </OutsideClickHandler>
         </ModalBackground>
       )}
