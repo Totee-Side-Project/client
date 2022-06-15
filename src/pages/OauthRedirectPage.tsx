@@ -21,7 +21,7 @@ function OauthRedirectPage() {
         },
       })
       .then((respose) => {
-        setUser({ ...user, ...respose.data });
+        setUser({ ...user, ...respose.data.body.data});
       });
   };
 
