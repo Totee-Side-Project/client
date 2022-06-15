@@ -63,20 +63,25 @@ function Write() {
         </div>
         <h2>카테고리</h2>
         <S.Category>
-          <S.Radio
-            type="radio"
-            name="study"
-            value={post.title}
-            checked
-            onChange={postOnChange}
-          /><label>스터디</label>
-          <S.Radio
-            type="radio"
-            name="study"
-            value={post.title}
-            checked
-            onChange={postOnChange}
-          /><label>멘티멘티</label>
+          <div>
+            <S.Radio
+              type="radio"
+              name="study"
+              value={post.title}
+              checked={true}
+              onChange={postOnChange}
+            />
+            <S.Label>스터디</S.Label>
+          </div>
+          <div>
+            <S.Radio
+              type="radio"
+              name="study"
+              value={post.title}
+              onChange={postOnChange}
+            />
+            <S.Label>멘티멘티</S.Label>
+          </div>
         </S.Category>
         <h2>내용</h2>
         <S.textarea

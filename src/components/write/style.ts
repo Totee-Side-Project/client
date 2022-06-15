@@ -1,9 +1,8 @@
 import styled from '@emotion/styled';
-import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
 export const Base = styled.div`
   @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap');
-  font-family: 'Nunito', sans-serif;  
+  font-family: 'Nunito', sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,13 +10,13 @@ export const Base = styled.div`
   padding-bottom: 10px;
   padding-top: 30px;
 
-  h2{
-    font-size : 32px;
+  h2 {
+    font-size: 32px;
   }
 `;
 
 export const Input = styled.input`
-  background: #FFFFFF;
+  background: #ffffff;
   border: 0;
   box-shadow: 1px 2px 2px 3px rgba(0, 0, 0, 0.25);
   outline: none;
@@ -26,10 +25,10 @@ export const Input = styled.input`
   height: 100px;
   font-size: 24px;
   padding-left: 20px;
-  text-align:left;
+  text-align: left;
   font-family: 'Nunito', sans-serif;
-  margin-top : 50px;
-  margin-bottom : 50px;
+  margin-top: 50px;
+  margin-bottom: 50px;
 
   &:focus {
     outline: none;
@@ -78,18 +77,18 @@ export const Button = styled.button`
 
 export const Label = styled.label`
   display: block;
-  margin: 20px auto;
+  //margin: 10px;
   text-align: center;
 `;
 
 export const Radio = styled.input`
-  display:inline-block;
+  display: inline-block;
   cursor: pointer;
-  padding-right: 10px;
+  margin-right: 6px;
 `;
 
 export const Category = styled.div`
-  background: #FFFFFF;
+  background: #ffffff;
   border: 0;
   box-shadow: 1px 2px 2px 3px rgba(0, 0, 0, 0.25);
   outline: none;
@@ -97,40 +96,28 @@ export const Category = styled.div`
   width: 800px;
   height: 100px;
   font-size: 16px;
-  padding-left: 20px;
-  text-align:left;
-  border: 1px dashed #083A50;
-  display:flex;
-  align-items:center; /* 방향이 row 기준: 세로 중앙 정렬*/
+  padding: 0 40px;
+  text-align: left;
+  border: 1px dashed #083a50;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center; /* 방향이 row 기준: 세로 중앙 정렬*/
   font-weight: bold;
-  margin-top : 50px;
-  margin-bottom : 50px;
+  margin-top: 50px;
+  margin-bottom: 50px;
 
-  input[type=radio]+label{
-    display:inline-block;
+  input[type='radio'] + label {
+    display: inline-block;
     cursor: pointer;
     padding-right: 10px;
   }
 
-  input[type=radio]+label{
-    color: #CACED8
+  input[type='radio'] + label {
+    color: #caced8;
   }
 
-  category input[type=radio]:checked+label{
-    color: #083A50
-  }
-`;
-
-export const MyBlock = styled.div`
-  .wrapper-class{
-        width: 50%;
-        margin: 0 auto;
-        margin-bottom: 4rem;
-    }
-  .editor {
-    height: 500px !important;
-    border: 1px solid #f1f1f1 !important;
-    padding: 5px !important;
-    border-radius: 2px !important;
+  category input[type='radio']:checked + label {
+    color: #083a50;
   }
 `;
