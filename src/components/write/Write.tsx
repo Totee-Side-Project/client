@@ -51,24 +51,34 @@ function Write() {
   return (
     <S.Base>
       <div>
-        <S.Input
-          type="text"
-          name="title"
-          value={post.title}
-          onChange={postOnChange}
-          placeholder="제목을 입력해주세요"
-        />
-        <S.Select
-          name="categoryName"
-          value={post.categoryName}
-          onChange={postOnChange}
-        >
-          <option value="" disabled hidden>
-            선택
-          </option>
-          <option value="스터디">스터디</option>
-          <option value="멘토멘티">멘토멘티</option>
-        </S.Select>
+        <h2>제목</h2>
+        <div>
+          <S.Input
+            type="text"
+            name="title"
+            value={post.title}
+            onChange={postOnChange}
+            placeholder="제목을 입력하세요."
+          />
+        </div>
+        <h2>카테고리</h2>
+        <S.Category>
+          <S.Radio
+            type="radio"
+            name="study"
+            value={post.title}
+            checked
+            onChange={postOnChange}
+          /><label>스터디</label>
+          <S.Radio
+            type="radio"
+            name="study"
+            value={post.title}
+            checked
+            onChange={postOnChange}
+          /><label>멘티멘티</label>
+        </S.Category>
+        <h2>내용</h2>
         <S.textarea
           name="content"
           value={post.content}

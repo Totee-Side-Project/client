@@ -1,8 +1,6 @@
 import { MouseEvent, useState } from 'react';
 import { useInfiniteQuery } from 'react-query';
 import InfiniteScroll from 'react-infinite-scroller';
-import { AiFillBook } from 'react-icons/ai';
-import { FcConferenceCall } from 'react-icons/fc';
 import PostService from '../../services/PostService';
 import Loading from '../loading/Loading';
 import Item from './Item';
@@ -41,14 +39,12 @@ function List() {
           onClick={handleCategoryChange}
           isFocus={category === '스터디'}
         >
-          <AiFillBook />
           <S.CategoryName>스터디</S.CategoryName>
         </S.Category>
         <S.Category
           onClick={handleCategoryChange}
           isFocus={category === '멘토멘티'}
         >
-          <FcConferenceCall />
           <S.CategoryName>멘토멘티</S.CategoryName>
         </S.Category>
       </S.Categories>
