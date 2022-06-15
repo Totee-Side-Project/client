@@ -1,23 +1,35 @@
 import styled from '@emotion/styled';
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
 export const Base = styled.div`
+  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap');
+  font-family: 'Nunito', sans-serif;  
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding-bottom: 10px;
+  padding-top: 30px;
+
+  h2{
+    font-size : 32px;
+  }
 `;
 
 export const Input = styled.input`
-  display: block;
-  border: none;
-  border-bottom: 2px solid #ccc;
-  font-size: 3rem;
-  font-weight: 630;
-  margin: 4% auto;
-  width: 70%;
-  height: 80px;
-  border-radius: 3px;
+  background: #FFFFFF;
+  border: 0;
+  box-shadow: 1px 2px 2px 3px rgba(0, 0, 0, 0.25);
+  outline: none;
+  border-radius: 20px;
+  width: 820px;
+  height: 100px;
+  font-size: 24px;
+  padding-left: 20px;
+  text-align:left;
+  font-family: 'Nunito', sans-serif;
+  margin-top : 50px;
+  margin-bottom : 50px;
 
   &:focus {
     outline: none;
@@ -70,8 +82,55 @@ export const Label = styled.label`
   text-align: center;
 `;
 
-export const Select = styled.select`
-  display: block;
-  margin: 20px auto;
-  padding: 5px;
+export const Radio = styled.input`
+  display:inline-block;
+  cursor: pointer;
+  padding-right: 10px;
+`;
+
+export const Category = styled.div`
+  background: #FFFFFF;
+  border: 0;
+  box-shadow: 1px 2px 2px 3px rgba(0, 0, 0, 0.25);
+  outline: none;
+  border-radius: 20px;
+  width: 800px;
+  height: 100px;
+  font-size: 16px;
+  padding-left: 20px;
+  text-align:left;
+  border: 1px dashed #083A50;
+  display:flex;
+  align-items:center; /* 방향이 row 기준: 세로 중앙 정렬*/
+  font-weight: bold;
+  margin-top : 50px;
+  margin-bottom : 50px;
+
+  input[type=radio]+label{
+    display:inline-block;
+    cursor: pointer;
+    padding-right: 10px;
+  }
+
+  input[type=radio]+label{
+    color: #CACED8
+  }
+
+  category input[type=radio]:checked+label{
+    color: #083A50
+  }
+`;
+
+export const MyBlock = styled.div`
+  .wrapper-class{
+        width: 50%;
+        margin: 0 auto;
+        margin-bottom: 4rem;
+    }
+  .editor {
+    height: 500px !important;
+    border: 1px solid #f1f1f1 !important;
+    padding: 5px !important;
+    border-radius: 2px !important;
+  }
 `;
