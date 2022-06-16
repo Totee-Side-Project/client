@@ -47,6 +47,30 @@ function List() {
         >
           <S.CategoryName>멘토멘티</S.CategoryName>
         </S.Category>
+        <S.Category
+          onClick={handleCategoryChange}
+          isFocus={category === '프로젝트'}
+        >
+          <S.CategoryName>프로젝트</S.CategoryName>
+        </S.Category>
+        <S.Category
+          onClick={handleCategoryChange}
+          isFocus={category === '동아리'}
+        >
+          <S.CategoryName>동아리</S.CategoryName>
+        </S.Category>
+        <S.Category
+          onClick={handleCategoryChange}
+          isFocus={category === 'LAB'}
+        >
+          <S.CategoryName>LAB</S.CategoryName>
+        </S.Category>
+        <S.Category
+          onClick={handleCategoryChange}
+          isFocus={category === '자유게시판'}
+        >
+          <S.CategoryName>자유게시판</S.CategoryName>
+        </S.Category>
       </S.Categories>
       <InfiniteScroll loadMore={() => fetchNextPage()} hasMore={hasNextPage}>
         <S.List>

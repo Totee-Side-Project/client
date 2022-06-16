@@ -45,7 +45,7 @@ function Viewpage() {
         <S.NameWrapper>
           {data && (
             <div>
-              <S.Name>작성자 : {data.body.data.username}</S.Name>
+              <S.Name>작성자 : {data.body.data.nickname}</S.Name>
               <S.Date>{data.body.data.createdAt}</S.Date>
               <S.BtnWrapper>
                 <S.Button onClick={deletePost}>

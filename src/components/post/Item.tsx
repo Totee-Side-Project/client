@@ -34,7 +34,7 @@ function Item({ post }: Props) {
               <S.Title>{post.title}</S.Title>
               <S.InfoBox>
                 <S.Info isBold>
-                  {`[${post.major}]`} {post.username}
+                  {`[${post.major}]`} {post.nickname}
                 </S.Info>
                 <S.IconBox>
                   <S.Info>

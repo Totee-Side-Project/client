@@ -66,9 +66,8 @@ function Write() {
           <div>
             <S.Radio
               type="radio"
-              name="study"
-              value={post.title}
-              checked={true}
+              name="categoryName"
+              value="스터디"
               onChange={postOnChange}
             />
             <S.Label>스터디</S.Label>
@@ -76,11 +75,47 @@ function Write() {
           <div>
             <S.Radio
               type="radio"
-              name="study"
-              value={post.title}
+              name="categoryName"
+              value="멘토멘티"
               onChange={postOnChange}
             />
-            <S.Label>멘티멘티</S.Label>
+            <S.Label>멘토멘티</S.Label>
+          </div>
+          <div>
+            <S.Radio
+              type="radio"
+              name="categoryName"
+              value="프로젝트"
+              onChange={postOnChange}
+            />
+            <S.Label>프로젝트</S.Label>
+          </div>
+          <div>
+            <S.Radio
+              type="radio"
+              name="categoryName"
+              value="동아리"
+              onChange={postOnChange}
+            />
+            <S.Label>동아리</S.Label>
+          </div>
+          <div>
+            <S.Radio
+              type="radio"
+              name="categoryName"
+              value="LAB"
+              onChange={postOnChange}
+            />
+            <S.Label>LAB</S.Label>
+          </div>
+          <div>
+            <S.Radio
+              type="radio"
+              name="categoryName"
+              value="자유게시판"
+              onChange={postOnChange}
+            />
+            <S.Label>자유게시판</S.Label>
           </div>
         </S.Category>
         <h2>내용</h2>
@@ -91,7 +126,9 @@ function Write() {
           placeholder="내용을 입력해주세요"
         />
       </div>
-      <S.Button onClick={onSubmit}>등록</S.Button>
+      <S.ButtonContainer>
+        <S.Button onClick={onSubmit}>등록</S.Button>
+      </S.ButtonContainer>
     </S.Base>
   );
 }

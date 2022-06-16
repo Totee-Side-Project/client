@@ -8,7 +8,7 @@ export const Base = styled.div`
   align-items: center;
   justify-content: center;
   padding-bottom: 10px;
-  padding-top: 30px;
+  padding-top: 80px;
 
   h2 {
     font-size: 32px;
@@ -47,11 +47,15 @@ export const textarea = styled.textarea`
   resize: none;
   display: block;
   margin: auto;
-  border-radius: 5px;
+  border-radius: 20px;
   width: 75%;
+  width: 820px;
   height: 500px;
+  margin-top: 50px;
+  margin-bottom: 50px;
   font-size: 20px;
   padding: 20px;
+  box-shadow: 1px 2px 2px 3px rgba(0, 0, 0, 0.25);
 
   &::placeholder {
     font-style: italic;
@@ -63,11 +67,16 @@ export const textarea = styled.textarea`
   }
 `;
 
+export const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: right;
+`;
+
 export const Button = styled.button`
-  display: inline-block;
   margin: 30px 10px auto;
   cursor: pointer;
-  height: 30px;
+  height: 50px;
+  width: 80px;
   padding: 1px 20px;
   background-color: #4f46e5;
   color: white;
