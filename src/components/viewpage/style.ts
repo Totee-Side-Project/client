@@ -6,7 +6,9 @@ export const Base = styled.div`
   align-items: center;
   justify-content: center;
   min-height: 100%;
-  padding: 10%;
+  padding-top : 30px;
+  padding-left : 100px;
+  padding-right : 100px;
 `;
 
 export const Title = styled.div`
