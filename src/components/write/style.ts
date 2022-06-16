@@ -120,17 +120,3 @@ export const Category = styled.div`
     color: #083A50
   }
 `;
-
-export const MyBlock = styled.div`
-  .wrapper-class{
-        width: 50%;
-        margin: 0 auto;
-        margin-bottom: 4rem;
-    }
-  .editor {
-    height: 500px !important;
-    border: 1px solid #f1f1f1 !important;
-    padding: 5px !important;
-    border-radius: 2px !important;
-  }
-`;
