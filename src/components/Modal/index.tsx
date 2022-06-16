@@ -6,6 +6,7 @@ import SignUpModal from './SignUpModal';
 import OutsideClickHandler from '../../Utils/OutsideClickHandler';
 import { backgroundAnimation } from '../Variants/variants';
 import { AnimatePresence, motion } from 'framer-motion';
+import AddInfoModal from './AddInfoModal';
 
 const ModalBackground = styled(motion.div)`
   position: fixed;
@@ -31,11 +32,25 @@ const Modal = () => {
           animate={'animate'}
           exit={'end'}
         >
-          <OutsideClickHandler
-            outsideClick={() => setModal({ ...modal, isOpen: false })}
-          >
-            <SignUpModal />
-          </OutsideClickHandler>
+          {/*<OutsideClickHandler*/}
+          {/*  outsideClick={() => setModal({ ...modal, isOpen: false })}*/}
+          {/*>*/}
+            {modal.type === 'signUp' && (
+              <OutsideClickHandler
+                outsideClick={() => setModal({ ...modal, isOpen: false })}
+              >
+                <SignUpModal />
+              </OutsideClickHandler>
+            )}
+            {modal.type === 'addInfo' && (
+              <OutsideClickHandler
+                outsideClick={() => setModal({ ...modal, isOpen: true })}
+              >
+                <AddInfoModal />
+                <button onClick={() => setModal({ ...modal, isOpen: false })}>닫기</button>
+              </OutsideClickHandler>
+            )}
+          {/*</OutsideClickHandler>*/}
         </ModalBackground>
       )}
     </AnimatePresence>

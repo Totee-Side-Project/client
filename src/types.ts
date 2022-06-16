@@ -93,7 +93,7 @@ export interface Posts {
   totalPages: number;
 }
 export interface ModalStateType {
-  type: 'signIn' | 'signUp';
+  type: 'signIn' | 'signUp' | 'addInfo';
   isOpen: boolean;
   title: string;
   content: string;
