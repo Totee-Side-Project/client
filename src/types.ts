@@ -48,7 +48,8 @@ export interface GetDataType {
   content: string;
 }
 
-export type Category = '전체' | '스터디' | '멘토멘티';
+export type Category = '전체' | '스터디' | '멘토멘티' | '프로젝트' |
+'동아리' | 'LAB' | '자유게시판';
 
 export interface Post {
   categoryName: Category;
@@ -60,7 +61,7 @@ export interface Post {
   postId: number;
   status: 'Y' | 'N';
   title: string;
-  username: string;
+  nickname: string;
   view: number;
 }
 
