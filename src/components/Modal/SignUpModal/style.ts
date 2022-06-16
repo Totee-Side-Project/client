@@ -39,6 +39,10 @@ export const ModalButton = styled.button`
   border-radius: 10px;
   cursor: pointer;
 `;
+export const ModalButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 export const SocialButtonWrapper = styled.div`
   display: flex;
   flex-direction: row;
@@ -74,8 +78,37 @@ export const KakoLoginButton = styled(GoogleLoginButton)`
   }
 `;
 
-
-
 export const SocialText = styled.div`
   width: 100%;
+`;
+
+export const NickNameInput = styled.input`
+  width: 60%;
+  height: 35px;
+  border-radius: 5px;
+  border: none;
+  outline: 1px solid gray;
+  display: inline-block;
+`;
+
+export const NickNameButton = styled.button`
+  margin-left: 10px;
+  height: 35px;
+  width: 100px;
+  background-color: white;
+  border: 1px solid darkgray;
+  border-radius: 5px;
+  cursor: pointer;
+`;
+export const NickNameWrapper = styled.div`
+  justify-content: space-between;
+  display: flex;
+  display: inline-block;
+  height: 80px;
+`;
+export const ErrorMsg = styled.div`
+  color: red;
+  margin-top: 10px;
+  margin-left: 4px;
+  font-size: 14px;
 `;

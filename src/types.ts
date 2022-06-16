@@ -3,6 +3,10 @@ export interface ReqSignIn {
   password: string;
 }
 
+export interface ReqNickName {
+  nickname: string;
+}
+
 export interface ReqSignUp extends ReqSignIn {
   email: string;
   nickname: string;
