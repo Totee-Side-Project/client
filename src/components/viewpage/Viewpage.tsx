@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import PostService from '../../services/PostService';
 import { GetDataType } from '../../types';
 import Loading from '../loading/Loading';
+import Comment from '../viewpage/Comment/comment';
 import * as S from './style';
 import BackIcon from '../../assets/backicon.svg';
 
@@ -63,6 +64,9 @@ function Viewpage() {
         <S.ContentWrapper>
           {data && <S.Content>{data.body.data.content}</S.Content>}
         </S.ContentWrapper>
+      </div>
+      <div>
+        <Comment/>
       </div>
     </S.Base>
   );
