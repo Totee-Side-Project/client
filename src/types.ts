@@ -14,6 +14,11 @@ export interface ReqNickName {
   nickname: string;
 }
 
+export interface ReqComment{
+  content: string;
+  postId: string | any;
+}
+
 export interface ReqSignUp extends ReqSignIn {
   email: string;
   nickname: string;
@@ -57,6 +62,14 @@ export interface ReqPostDataType {
 export interface GetDataType {
   title: string;
   content: string;
+}
+
+export interface Comment {
+  commentId: string;
+  content: string;
+  createdAta: string;
+  postId: string;
+  username: string;
 }
 
 export type Category = '전체' | '스터디' | '멘토멘티' | '프로젝트' |
