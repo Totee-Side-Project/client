@@ -7,6 +7,7 @@ import * as S from './style';
 import MockProfileImage from '../../Mocks/Ellipse.jpg';
 import ProfileDropdown from '../ProfileDropdown';
 import { useState } from 'react';
+import ToteeLogo from '../../assets/toteelogo2.png';
 
 function Header() {
   const [modal, setModal] = useRecoilState(modalState);
@@ -24,7 +25,7 @@ function Header() {
       <S.Base>
         <S.Title>
           <Link to="/">
-            <img src="/toteelogo2.png" />
+            <img src={ToteeLogo} />
           </Link>
         </S.Title>
         {user ? (
