@@ -4,6 +4,8 @@ import { FaRegCommentDots, FaEye } from 'react-icons/fa';
 import { AiFillHeart } from 'react-icons/ai';
 import { Post } from '../../types';
 import * as S from './style';
+import study from '../../assets/study.png';
+import mentor from '../../assets/mentor.png';
 
 interface Props {
   post: Post;
@@ -17,9 +19,7 @@ function Item({ post }: Props) {
           <S.ImageWrapper isDone={post.status === 'N'}>
             <S.ImageBox>
               <S.Image
-                src={
-                  post.categoryName === '스터디' ? '/study.png' : '/mentor.png'
-                }
+                src={post.categoryName === '스터디' ? study : mentor}
                 alt={`${post.categoryName} 이미지`}
               />
             </S.ImageBox>

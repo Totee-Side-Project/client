@@ -5,6 +5,7 @@ import PostService from '../../services/PostService';
 import { GetDataType } from '../../types';
 import Loading from '../loading/Loading';
 import * as S from './style';
+import BackIcon from '../../assets/backicon.svg';
 
 function Viewpage() {
   const { id } = useParams();
@@ -35,7 +36,7 @@ function Viewpage() {
       <div>
         <S.iconWrapper>
           <Link to="/">
-            <img src="/backicon.svg" alt="뒤로 가기 이미지" />
+            <img src={BackIcon} alt="뒤로 가기 이미지" />
           </Link>
         </S.iconWrapper>
         <S.TitleWrapper>

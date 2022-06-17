@@ -12,6 +12,8 @@ import { modalAnimation } from '../../Variants/variants';
 import { useRecoilState } from 'recoil';
 import { modalState } from '../../../atoms';
 import { useNavigate } from 'react-router-dom';
+import GoogleLogo from '../.././../assets/googlelogo.svg';
+import KakaoLogo from '../.././../assets/kakaologo.svg';
 
 export const API_BASE_URL = 'https://api.totee.link';
 export const OAUTH2_REDIRECT_URI = 'https://totee.site/oauth/redirect';
@@ -34,13 +36,13 @@ const Page1 = () => {
         <GoogleLoginButton
           onClick={() => (window.location.href = GOOGLE_AUTH_URL)}
         >
-          <img src="googlelogo.svg" />
+          <img src={GoogleLogo} />
           <SocialText>구글 로그인</SocialText>
         </GoogleLoginButton>
         <KakoLoginButton
           onClick={() => (window.location.href = KAKAO_AUTH_URL)}
         >
-          <img src="kakaologo.svg" />
+          <img src={KakaoLogo} />
           <SocialText>카카오 로그인</SocialText>
         </KakoLoginButton>
       </SocialButtonWrapper>
