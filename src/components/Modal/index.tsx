@@ -35,21 +35,25 @@ const Modal = () => {
           {/*<OutsideClickHandler*/}
           {/*  outsideClick={() => setModal({ ...modal, isOpen: false })}*/}
           {/*>*/}
-            {modal.type === 'signUp' && (
-              <OutsideClickHandler
-                outsideClick={() => setModal({ ...modal, isOpen: false })}
+          {modal.type === 'signUp' && (
+            <OutsideClickHandler
+              outsideClick={() => setModal({ ...modal, isOpen: false })}
+            >
+              <SignUpModal />
+            </OutsideClickHandler>
+          )}
+          {modal.type === 'addInfo' && (
+            <OutsideClickHandler
+              outsideClick={() => setModal({ ...modal, isOpen: true })}
+            >
+              <AddInfoModal />
+              <button
+                onClick={() => setModal({ ...modal, isOpen: false, page: 1 })}
               >
-                <SignUpModal />
-              </OutsideClickHandler>
-            )}
-            {modal.type === 'addInfo' && (
-              <OutsideClickHandler
-                outsideClick={() => setModal({ ...modal, isOpen: true })}
-              >
-                <AddInfoModal />
-                <button onClick={() => setModal({ ...modal, isOpen: false })}>닫기</button>
-              </OutsideClickHandler>
-            )}
+                닫기
+              </button>
+            </OutsideClickHandler>
+          )}
           {/*</OutsideClickHandler>*/}
         </ModalBackground>
       )}

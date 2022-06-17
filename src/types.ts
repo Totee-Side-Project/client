@@ -3,6 +3,13 @@ export interface ReqSignIn {
   password: string;
 }
 
+export interface ReqInfo {
+  nickname: string;
+  grade: string;
+  major: string;
+  univercity: string;
+}
+
 export interface ReqNickName {
   nickname: string;
 }

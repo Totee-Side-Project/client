@@ -22,4 +22,26 @@ const ModalState = {
 export const modalState = atom<ModalStateType>({
   key: 'modalState',
   default: ModalState,
-});
+})
+
+const InfoState = {
+  nickname: '',
+  grade: '',
+  major: '',
+  univercity: '',
+};
+export const infoState = atom<any>({
+  key: 'infoState',
+  default: InfoState,
+})
+
+const UniState = {
+  nickname: '',
+  grade: '',
+  major: '',
+};
+export const uniState = atom<any>({
+  key: 'infoState',
+  default: InfoState,
+})
+
