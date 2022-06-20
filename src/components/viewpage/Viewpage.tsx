@@ -2,11 +2,12 @@ import axios from 'axios';
 import { useQuery } from 'react-query';
 import { Link, useParams } from 'react-router-dom';
 import PostService from '../../services/PostService';
-import { GetDataType } from '../../types';
+import { GetDataType, Post, ResponseData } from '../../types';
 import Loading from '../loading/Loading';
 import Comment from '../viewpage/Comment/comment';
 import * as S from './style';
 import BackIcon from '../../assets/backicon.svg';
+import CommentItem from './Comment/Item';
 
 function Viewpage() {
   const { id } = useParams();
@@ -66,7 +67,37 @@ function Viewpage() {
         </S.ContentWrapper>
       </div>
       <div>
-        <Comment/>
+        <br />
+        <br />
+        <CommentItem />
+        <br /> <br /> <br />
+        <div>댓글</div>
+        <br />
+        <hr />
+        <br />
+        {data && (
+          <div>
+            <S.Name>{data.body.data.commentDTOList[0].username}</S.Name>
+            <S.Date>{data.body.data.commentDTOList[0].created_at}</S.Date>
+            <br />
+            <br />
+            <div>{data.body.data.commentDTOList[0].content}</div>
+            <br />
+            <br />
+            {/*<S.Name>{data.body.data.commentDTOList[2].username}</S.Name>*/}
+            {/*<S.Date>{data.body.data.commentDTOList[2].created_at}</S.Date>*/}
+            {/*<br />*/}
+            {/*<br />*/}
+            {/*<div>{data.body.data.commentDTOList[2].content}</div>*/}
+          </div>
+        )}
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <Comment />
       </div>
     </S.Base>
   );

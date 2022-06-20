@@ -6,14 +6,12 @@ import PostService from '../../../services/PostService';
 import { ResponseData } from '../../../types';
 
 function Comment() {
-  const {id} = useParams<string>();
+  const { id } = useParams<string>();
 
   const [comment, setComment] = useState({
     content: '',
     postId: id,
   });
-
-
 
   const postOnChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -23,7 +21,7 @@ function Comment() {
       ...prev,
       [name]: value,
     }));
-    console.log(comment)
+    console.log(comment);
   };
 
   const mutation = useMutation(PostService.addComment, {
@@ -42,21 +40,21 @@ function Comment() {
     mutation.mutate(comment);
   };
 
-const getComment = async () => {
-    const response = await axios.get(`api/v1/comment/${id}`).then((response)=>{
-      return response.data;
-      console.log(response.data);
-    })
-
-  }
+  const getComment = async () => {
+    const response = await axios
+      .get(`api/v1/comment/${id}`)
+      .then((response) => {
+        return response.data;
+        console.log(response.data);
+      });
+  };
   return (
     <div>
-      <br/> <br/> <br/>
-      <div>댓글</div>
-      <br/>
-      <hr/>
-      {/*<div>{data.body.data.content}</div>*/}
-      <br/>
+      {/*<br/> <br/> <br/>*/}
+      {/*<div>댓글</div>*/}
+      {/*<br/>*/}
+      {/*<hr/>*/}
+      {/*<br/>*/}
       <div>
         <input
           type="text"

@@ -1,6 +1,14 @@
 import axios, { AxiosResponse } from 'axios';
 import api from '../lib/api';
-import { Posts, ResponseData, ReqPostDataType, Category, Post, ReqComment, Comment } from '../types';
+import {
+  Posts,
+  ResponseData,
+  ReqPostDataType,
+  Category,
+  Post,
+  ReqComment,
+  Comment,
+} from '../types';
 
 export default class PostService {
   public static async getPosts(
@@ -35,17 +43,17 @@ export default class PostService {
   public static async addComment(
     postData: ReqComment
   ): Promise<ResponseData<void>> {
-    const response = await api.post('api/v1/comment',postData,
-      {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('access_token')}`,
-        },
-      }
-    );
+    const response = await api.post('api/v1/comment', postData, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('access_token')}`,
+      },
+    });
     return response.data;
   }
 
-  public static async getComment(postId:string): Promise<ResponseData<Comment>> {
+  public static async getComment(
+    postId: string
+  ): Promise<ResponseData<Comment>> {
     const response = await api.get(`api/v1/comment/${postId}`);
     return response.data;
   }

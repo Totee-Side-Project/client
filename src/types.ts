@@ -14,7 +14,7 @@ export interface ReqNickName {
   nickname: string;
 }
 
-export interface ReqComment{
+export interface ReqComment {
   content: string;
   postId: string | any;
 }
@@ -72,12 +72,35 @@ export interface Comment {
   username: string;
 }
 
-export type Category = '전체' | '스터디' | '멘토멘티' | '프로젝트' |
-'동아리' | 'LAB' | '자유게시판';
+export interface CommentDTO {
+  commentId: number;
+  content: string;
+  created_at: string;
+  postId: number;
+  username: string;
+}
+
+export type Category =
+  | '전체'
+  | '스터디'
+  | '멘토멘티'
+  | '프로젝트'
+  | '동아리'
+  | 'LAB'
+  | '자유게시판';
 
 export interface Post {
   categoryName: Category;
   commentCount: number;
+  commentDTOList: [
+    {
+      commentId: number;
+      content: string;
+      created_at: string;
+      postId: number;
+      username: string;
+    }
+  ];
   content: string;
   createdAt: string;
   likeCount: number;

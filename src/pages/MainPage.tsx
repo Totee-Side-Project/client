@@ -12,8 +12,8 @@ function MainPage() {
 
   useEffect(() => {
     if (user && !user.nickname) {
-      console.log('없음')
-      setModal({ ...modal, isOpen: true, type: 'addInfo' })
+      console.log('없음');
+      setModal({ ...modal, isOpen: true, type: 'addInfo' });
     }
   }, [user]);
 
